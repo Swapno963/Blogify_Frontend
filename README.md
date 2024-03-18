@@ -1,5 +1,4 @@
 # Blogging Platform Project
-#### live site : https://blogify-teal-three.vercel.app/
 ## Description
 
 This project is a blogging platform with various features implemented using React. Below are the requirements and features implemented in this project:
@@ -52,10 +51,20 @@ This project is a blogging platform with various features implemented using Reac
 
 
 
-<!-- another -->
-- **react hook form : 
+## Live Site
 
+You can access the live site [here](https://blogify-teal-three.vercel.app/).
 
+## User Login
 
-suvash = gandhism in the light of hegelian dialectic
-= a message to my countrymen
+To log in as a user, please use the following credentials:
+
+- **Email:** swapnoms7d3@gmail.com
+- **Password:** 12345678n
+
+## Accessing the Admin Panel
+
+To access the admin panel, you'll need administrative privileges. Please use the following credentials:
+
+- **Username:** admin
+- **Password:** 123
