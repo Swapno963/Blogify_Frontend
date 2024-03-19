@@ -6,7 +6,7 @@ export default function PopulatBloags() {
   const [popularBlog, setpopularBlog] = useState();
   useEffect(() => {
     const url = `${baseUrl()}/blogs/popular/`;
-    console.log(import.meta.env);
+    // console.log(import.meta.env);
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -20,7 +20,7 @@ export default function PopulatBloags() {
   }, []);
   // const authorObject = stringToObj(author)
 
-  console.log("popular blog :", popularBlog);
+  // console.log("popular blog :", popularBlog);
   return (
     <div className="sidebar-card">
       <h3 className="text-slate-300 text-xl lg:text-2xl font-semibold">

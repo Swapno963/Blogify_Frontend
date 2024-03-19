@@ -94,7 +94,7 @@ export default function NormalBlogs() {
 
           <div className="md:col-span-2 h-full w-full space-y-5">
             <PopulatBloags />
-            {/* <FavouritBlogs /> */}
+            <FavouritBlogs />
           </div>
         </div>
       </div>

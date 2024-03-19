@@ -11,10 +11,11 @@ import { useAxious } from "../hooks/useAxious";
 import useAuth from "../hooks/useAuth";
 import CommentCard from "./CommentCard";
 import axios from "axios";
+import { baseUrl } from "../utility";
 export default function Comments({ comment_writer, blogId, setSingleBlog }) {
   const { api } = useAxious();
   const { auth } = useAuth(); // in auth.use we can get all the user info
-  // console.log(auth.user);
+  // console.log(auth?.user?.id);
 
   // const [ourComment, setOurComment] = useState([]);
   // console.log(blogId);
@@ -23,6 +24,7 @@ export default function Comments({ comment_writer, blogId, setSingleBlog }) {
     handleSubmit,
     formState: { errors },
     setError,
+    reset 
   } = useForm();
 
   const submitForm = (formData) => {
@@ -40,28 +42,29 @@ export default function Comments({ comment_writer, blogId, setSingleBlog }) {
     const data = {
       content: formData.content,
       // 'author':auth?.user?.id,
-      author: 1,
+      author: auth?.user?.id,
       blog: blogId,
     };
     console.log(data);
     try {
       const responce = await api.post(
-        `http://127.0.0.1:8000/blogs/comment/${blogId}/`,
+        `${baseUrl()}/blogs/comment/${blogId}/`,
         // `http://127.0.0.1:8000/blogs/comment/5`,
         data
       );
-        const commentData = responce?.data?.data
+      reset()
+      const commentData = responce?.data?.data;
       // const updateComments = [...comment_writer,...commentData]
-      console.log(commentData);
+      // console.log(commentData);
       // console.log(responce);
       // console.log(updateComments);
       setSingleBlog((prev) => ({
         ...prev,
-        comment_writer: [...comment_writer,commentData],
+        comment_writer: [...comment_writer, commentData],
       }));
 
       // setOurComment([...ourComment, responce?.data?.data]);
-      console.log(responce);
+      // console.log(responce);
     } catch (error) {
       console.log(error);
     }
@@ -73,9 +76,9 @@ export default function Comments({ comment_writer, blogId, setSingleBlog }) {
   // });
   // console.log(state);
   // console.log('comments : ', comments[0]?.author?.id === state?.user?.id);
-  console.log(comment_writer)
+  // console.log(comment_writer);
   return (
-    <section id="comments">
+    <section id="comments ">
       <div className="mx-auto w-full md:w-10/12 container">
         <h2 className="text-3xl font-bold my-8">
           Comments ({comment_writer?.length})

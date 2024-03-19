@@ -11,12 +11,11 @@ export default function SingleBlog() {
   // console.log("you have clidked :", id);
   const [singleBlog, setSingleBlog] = useState();
   useEffect(() => {
-    const url = `${baseUrl()}/blogs/blog/${id}`
+    const url = `${baseUrl()}/blogs/blog/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        
-        setSingleBlog({...data,user:stringToObj(data?.user)})
+        setSingleBlog({ ...data, user: stringToObj(data?.user) });
       })
       .catch((error) => {
         // Handle error
@@ -24,17 +23,16 @@ export default function SingleBlog() {
       });
   }, [id]);
 
-  
   // const newAuthor = stringToObj(singleBlog?.author)
   console.log(singleBlog);
 
-console.log(singleBlog);
+  console.log(singleBlog);
   const textWithNewlines = singleBlog?.content;
   const htmlContent = textWithNewlines?.replace(/\n/g, "<br>");
   return (
     <>
-      <main>
-        <section>
+      <main className="pb-[200px]">
+        <section >
           <div className="container text-center py-8">
             <h1 className="font-bold text-3xl md:text-5xl">
               {singleBlog?.title}
@@ -47,7 +45,10 @@ console.log(singleBlog);
                       singleBlog?.user?.firstName[0]}
                   </span>
                 </div>
-                <Link to={`/profile/${singleBlog?.user?.id}`} className="text-slate-500 text-sm">
+                <Link
+                  to={`/profile/${singleBlog?.user?.id}`}
+                  className="text-slate-500 text-sm"
+                >
                   {singleBlog?.user?.firstName}
                 </Link>
               </div>
@@ -58,8 +59,7 @@ console.log(singleBlog);
             </div>
             <img
               className="mx-auto w-full md:w-8/12 object-cover h-80 md:h-96"
-              src={singleBlog?.thumbnail
-              }
+              src={singleBlog?.thumbnail}
               alt=""
             />
 
