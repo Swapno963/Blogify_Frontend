@@ -666,13 +666,13 @@ nav {
   display: flex;
   cursor: pointer;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
   border-radius: 0.5rem;
   border-width: 1px;
-  border-color: rgb(30 41 59 / 0.4);
+  border-color: rgb(30 41 59 );
   --tw-bg-opacity: 1;
-  background-color: rgb(3 3 23 / var(--tw-bg-opacity));
-  padding: 0.75rem;
+  /* background-color: rgb(3 3 23 / var(--tw-bg-opacity)); */
+  padding: 1rem;
   --tw-shadow-color: rgb(226 232 240 / 0.5);
   --tw-shadow: var(--tw-shadow-colored);
   transition-property: all;

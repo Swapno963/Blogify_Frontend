@@ -27,40 +27,40 @@ export default function App() {
         darkMode ? "bg-[#030317] text-white " : "text-gray-800 bg-gray-50"
       }
     >
-      <div>
-        <div>
-          <Navbar
-            toggleDarkMode={toggleDarkMode}
-            darkMode={darkMode}
-            showSearch={showSearch}
-            setShowSearch={setShowSearch}
-          />
-          {showSearch &&
-            createPortal(
-              <SearchBlog
-                showSearch={showSearch}
-                setShowSearch={setShowSearch}
-              />,
-              document.body
-            )}
-          <Routes>
-            {/* this is for privet route */}
-            <Route element={<PrivetRoutes />}>
-              <Route element={<WriteBlog />} path="writeBlog" />
-              <Route element={<Profile />} path="profile/:id" />
-              <Route element={<SingleBlog />} path="detail/:id" />
-              <Route element={<EditSingleBlog />} path="editBlog/:id" />
-            </Route>
+      <div className="mb-[-128px]">
+        <Navbar
+          toggleDarkMode={toggleDarkMode}
+          darkMode={darkMode}
+          showSearch={showSearch}
+          setShowSearch={setShowSearch}
+        />
+        {showSearch &&
+          createPortal(
+            <SearchBlog
+              showSearch={showSearch}
+              setShowSearch={setShowSearch}
+            />,
+            document.body
+          )}
+        <Routes>
+          {/* this is for privet route */}
+          <Route element={<PrivetRoutes />}>
+            <Route element={<WriteBlog />} path="writeBlog" />
+            <Route element={<Profile />} path="profile/:id" />
+            <Route element={<SingleBlog />} path="detail/:id" />
+            <Route element={<EditSingleBlog />} path="editBlog/:id" />
+          </Route>
 
-            {/* without protected routes */}
-            <Route element={<NormalBlogs />} path="" exact />
-            <Route element={<Login />} path="login" />
-            <Route element={<Register />} path="register" />
-            <Route element={<NotFound />} path="*" />
-          </Routes>
-        </div>
+          {/* without protected routes */}
+          <Route element={<NormalBlogs />} path="" exact />
+          <Route element={<Login />} path="login" />
+          <Route element={<Register />} path="register" />
+          <Route element={<NotFound />} path="*" />
+        </Routes>
       </div>
-      <Footer />
+      <div className=" mb-[-100px]">
+        <Footer />
+      </div>
     </div>
   );
 }

@@ -2,7 +2,11 @@
 import threeDots from "../assets/icons/3dots.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { getDateDifferenceFromNow, isCommentAuthor, stringToObj } from "../utility";
+import {
+  getDateDifferenceFromNow,
+  isCommentAuthor,
+  stringToObj,
+} from "../utility";
 import DeleteBlog from "./DeleteBlog";
 import EditBlog from "./EditBlog";
 export default function NormalBlogCard({ bl, setBlogs, blogs }) {
@@ -21,28 +25,26 @@ export default function NormalBlogCard({ bl, setBlogs, blogs }) {
   //     const [key, value] = pair.trim().split(':').map(item => item.trim());
   //     authorObject[key.replace(/'/g, '')] = value.replace(/'/g, '');
   // });
-  const authorObject = stringToObj(user)
+  const authorObject = stringToObj(user);
   // console.log(authorObject);
   // Parse the JSON string into a JavaScript object
   // const authorObject = JSON.parse(validJsonString);
-  
+
   // console.log(authorObject);
 
   return (
     <>
       <Link to={`detail/${id}`} className="blog-card">
-        <img
-          className="blog-thumb"
-          src={thumbnail}
-          alt=""
-        />
+        <img className="blog-thumb" src={thumbnail} alt="" />
         <div className="mt-2 relative">
           <p>
             <h3 className="text-slate-300 text-xl lg:text-2xl">
               <span>{title}</span>
             </h3>
           </p>
-          <p className="mb-6 text-base text-slate-500 mt-1">{content}</p>
+          <p className="mb-6 text-base text-slate-500 mt-1">
+            {content.split(" ").slice(0, 40).join(" ")}
+          </p>
 
           <div className="flex justify-between items-center">
             <div className="flex items-center capitalize space-x-2">
@@ -55,15 +57,17 @@ export default function NormalBlogCard({ bl, setBlogs, blogs }) {
                     alt=""
                   />
                 ) : ( */}
-                  <span className="">
-                    {authorObject?.firstName ? authorObject?.firstName[0] : ""}
-                  </span>
+                <span className="">
+                  {authorObject?.firstName ? authorObject?.firstName[0] : ""}
+                </span>
                 {/* )} */}
               </div>
 
               <div>
                 <h5 className="text-slate-500 text-sm">
-                  <Link to={`/profile/${authorObject?.id}`}>{authorObject?.firstName}</Link>
+                  <Link to={`/profile/${authorObject?.id}`}>
+                    {authorObject?.firstName}
+                  </Link>
                 </h5>
                 <div className="flex items-center text-xs text-slate-700">
                   <span>{getDateDifferenceFromNow(createdAt)}</span>

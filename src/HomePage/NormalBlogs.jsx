@@ -12,7 +12,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { baseUrl } from "../utility";
 
-const blogPerPage = 3;
+const blogPerPage = 2;
 export default function NormalBlogs() {
   const { api } = useAxious();
   const [blogs, setBlogs] = useState([]);
@@ -23,17 +23,24 @@ export default function NormalBlogs() {
   useEffect(() => {
     const loadBlog = async () => {
       try {
-        const response = await axios.get(`${baseUrl()}/blogs/blog/`);
-        console.log(response);
+        const response = await axios.get(
+          `${baseUrl()}/blogs/blog/?limit=${blogPerPage}&page=${page}`
+        );
+        // console.log(response);
 
         if (response.status === 200) {
-          if (response?.data?.results?.length === 0) {
+          if (response?.data?.next === null) {
             setHasMOre(false);
             // console.log("sala tham amr r nei!");
+            if (response?.data?.results?.length > 0) {
+              const data = response?.data?.results;
+              setBlogs((prevProducts) => [...prevProducts, ...data]);
+              setPage((prevPage) => prevPage + 1);
+            }
 
             toast("There is no new blog!");
           } else {
-            const data = response?.data;
+            const data = response?.data?.results;
             setBlogs((prevProducts) => [...prevProducts, ...data]);
             setPage((prevPage) => prevPage + 1);
           }
@@ -87,7 +94,7 @@ export default function NormalBlogs() {
 
           <div className="md:col-span-2 h-full w-full space-y-5">
             <PopulatBloags />
-            <FavouritBlogs />
+            {/* <FavouritBlogs /> */}
           </div>
         </div>
       </div>

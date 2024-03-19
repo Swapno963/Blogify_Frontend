@@ -6,7 +6,12 @@ import useAuth from "../hooks/useAuth";
 import Logout from "./Auth/Logout";
 import { useProfile } from "../hooks/useProfile";
 
-export default function Navbar({ darkMode,toggleDarkMode,showSearch, setShowSearch }) {
+export default function Navbar({
+  darkMode,
+  toggleDarkMode,
+  showSearch,
+  setShowSearch,
+}) {
   const { auth } = useAuth(); // in auth.use we can get all the user info
   // console.log("from naavbar, looking for user data", auth);
   // if(auth.user){
@@ -31,18 +36,23 @@ export default function Navbar({ darkMode,toggleDarkMode,showSearch, setShowSear
                 <!-- Notes for Developers -->
                 <!-- For Logged in User - Write, Profile, Logout Menu -->
                 <!-- For Not Logged in User - Login Menu --> */}
-                 <Link
-                    onClick={() => setShowSearch(!showSearch)}
-                    to="#"
-                    className="flex items-center gap-2 cursor-pointer"
-                  >
-                    <img src={searchLogo} alt="Search" />
-                    <span>Search</span>
-                  </Link>
+        <Link
+          onClick={() => setShowSearch(!showSearch)}
+          to="#"
+          className="flex items-center gap-2 cursor-pointer"
+        >
+          <img src={searchLogo} alt="Search" />
+          <span>Search</span>
+        </Link>
         <div>
           <ul className="flex items-center space-x-5">
             <li>
-              <button className="bg-indigo-200 text-white px-6 py-2 md:py-3 rounded-md hover:bg-indigo-700 transition-all duration-200" onClick={toggleDarkMode}>{darkMode? 'Light Mode' : 'Dark Mode'} </button>
+              <button
+                className="bg-indigo-600 text-white px-6 py-2 md:py-3 rounded-md hover:bg-indigo-700 transition-all duration-200"
+                onClick={toggleDarkMode}
+              >
+                {darkMode ? "Light Mode" : "Dark Mode"}{" "}
+              </button>
             </li>
             <li>
               <Link
