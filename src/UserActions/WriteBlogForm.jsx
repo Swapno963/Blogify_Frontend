@@ -7,7 +7,10 @@ import { useAxious } from "../hooks/useAxious";
 import { useNavigate } from "react-router-dom";
 import img from "../assets/blogs/taiulwind-cn-thumb.jpg";
 import axios from "axios";
+import { baseUrl } from "../utility";
+import useAuth from "../hooks/useAuth";
 export default function WriteBlogForm({ isEditing = false, blogToEdit = {} }) {
+  const { auth } = useAuth();
   const navigate = useNavigate();
   const { api } = useAxious();
   const [data, setData] = useState({});
@@ -41,30 +44,26 @@ export default function WriteBlogForm({ isEditing = false, blogToEdit = {} }) {
       // formDatas.append("avatar", thumbnail);
       // console.log(file);
       setData({ ...data, thumbnail });
-      // console.log(file);
+      console.log(thumbnail);
     }
   };
-  const submitForm = (formDatas) => {
-    const mainData = {
-      ...formDatas,
-      ...data,
-      likes: 1,
-      author: 1,
-      comments: 1,
+  const submitForm = (Data) => {
+    console.log(data);
+    const formData = {
+      'title': Data.title,
+      'thumbnail': data.thumbnail
+      ,
+      'content': Data.content,
+      // "tag": [],
+      'likes': "0",
+      'user': auth.user?.id,
     };
-    console.log(mainData);
-    UploadToServer(mainData);
+    console.log(FormData);
+    UploadToServer(formData);
   };
 
   const postRequest = async (Data) => {
-    const responce = await axios.post(`http://127.0.0.1:8000/blogs/blogPost/`, {
-      user: 1,
-      title: "f",
-      content: "g",
-      tag: [2],
-      likes: 1,
-      author: 1,
-    });
+    const responce = await axios.post(`${baseUrl()}/blogs/write/`,Data);
     return responce;
   };
   const patchRequest = async (Data) => {
@@ -84,49 +83,13 @@ export default function WriteBlogForm({ isEditing = false, blogToEdit = {} }) {
       if (isEditing) {
         navigate(`/detail/${blogToEdit?.id}`);
       } else {
-        navigate(`/detail/${responce?.data?.blog?.id}`);
+        navigate(`/detail/${responce?.data?.id}`);
       }
     } catch (error) {
       console.log(error);
     }
   };
 
-  // for testing perpose
-  const createBlogPost = async () => {
-    try {
-      const response = await fetch(`http://127.0.0.1:8000/blogs/blogPost/`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          // Add any additional headers as needed, such as Authorization
-          // 'Authorization': 'Bearer your-auth-token',
-        },
-        body: JSON.stringify({
-          user: 1,
-          title: "f",
-          content: "g",
-          tag: [2],
-          likes: 1,
-          author: 1,
-        }),
-      });
-console.log(response);
-      if (!response.ok) {
-        // Handle error response
-        const errorMessage = await response.text();
-        throw new Error(errorMessage || "Failed to create blog post");
-      }
-
-      // Blog post created successfully
-      const responseData = await response.json();
-      console.log("Blog post created:", responseData);
-    } catch (error) {
-      console.error("Error creating blog post:", error);
-    }
-  };
-
-  // Call the function to create the blog post
-  // createBlogPost();
   return (
     <form
       onSubmit={handleSubmit(submitForm)}
@@ -134,7 +97,6 @@ console.log(response);
       method="POST"
       className="createBlog"
     >
-       <h3 onClick={createBlogPost}>Save</h3>
       <div className="grid place-items-center bg-slate-600/20 h-[150px] rounded-md my-4">
         <div className="flex items-center gap-4 hover:scale-110 transition-all cursor-pointer">
           <svg
