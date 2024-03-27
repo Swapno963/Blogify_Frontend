@@ -9,6 +9,7 @@ import { actions } from "../../actions";
 import useAuth from "../../hooks/useAuth";
 import { useProfile } from "../../hooks/useProfile";
 import Field from "../common/Field";
+import { baseUrl } from "../../utility";
 
 export default function LoginForm() {
   const { state, dispatch } = useProfile();
@@ -29,7 +30,7 @@ export default function LoginForm() {
     try {
       const responce = await axios.post(
         // `${import.meta.env.DJANGO_SERVER_BASE_URL}/auth/login/`,
-        "http://127.0.0.1:8000/auth/login/",
+        `${baseUrl()}/auth/login/`,
         formData
       );
       console.log(responce);

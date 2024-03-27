@@ -34,7 +34,7 @@ export default function NormalBlogCard({ bl, setBlogs, blogs }) {
 
   return (
     <>
-      <Link to={`detail/${id}`} className="blog-card">
+      <Link to={`/detail/${id}`} className="blog-card">
         <img className="blog-thumb" src={thumbnail} alt="" />
         <div className="mt-2 relative">
           <p>

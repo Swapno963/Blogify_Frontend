@@ -14,6 +14,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import NotFound from "./components/NotFound";
 import PrivetRoutes from "./routes/PrivetRoutes";
+import FrontPage from "./FrontPage/FrontPage";
 
 export default function App() {
   const [showSearch, setShowSearch] = useState(false);
@@ -52,7 +53,8 @@ export default function App() {
           </Route>
 
           {/* without protected routes */}
-          <Route element={<NormalBlogs />} path="" exact />
+          <Route element={<FrontPage />} path="/" exact />
+          <Route element={<NormalBlogs />} path="/blogs"/>
           <Route element={<Login />} path="login" />
           <Route element={<Register />} path="register" />
           <Route element={<NotFound />} path="*" />

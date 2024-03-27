@@ -13,6 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { baseUrl } from "../utility";
 
 const blogPerPage = 2;
+let haseMoreOut = true;
 export default function NormalBlogs() {
   const { api } = useAxious();
   const [blogs, setBlogs] = useState([]);
@@ -26,16 +27,17 @@ export default function NormalBlogs() {
         const response = await axios.get(
           `${baseUrl()}/blogs/blog/?limit=${blogPerPage}&page=${page}`
         );
-        // console.log(response);
-
+        
         if (response.status === 200) {
+          console.log(response);
           if (response?.data?.next === null) {
-            setHasMOre(false);
-            // console.log("sala tham amr r nei!");
+            haseMoreOut = false;
+            // setHasMOre(false); //aita kaj kore na
+            console.log("sala tham amr r nei!",hasMore);
             if (response?.data?.results?.length > 0) {
               const data = response?.data?.results;
               setBlogs((prevProducts) => [...prevProducts, ...data]);
-              setPage((prevPage) => prevPage + 1);
+              // setPage((prevPage) => prevPage + 1);
             }
 
             toast("There is no new blog!");
@@ -58,9 +60,12 @@ export default function NormalBlogs() {
     const onIntersection = (items) => {
       const loaderItem = items[0];
 
-      if (loaderItem.isIntersecting && hasMore) {
+      if ( haseMoreOut) {
         loadBlog();
       }
+      // if (loaderItem.isIntersecting && hasMore) {
+      //   loadBlog();
+      // }
     };
     const observer = new IntersectionObserver(onIntersection);
 
@@ -88,7 +93,7 @@ export default function NormalBlogs() {
                   setBlogs={setBlogs}
                 />
               ))}
-            {hasMore && <div ref={loaderRef}>Loading more products...</div>}
+            {hasMore && <div ref={loaderRef}>Loading more blogs...</div>}
             <ToastContainer />
           </div>
 
