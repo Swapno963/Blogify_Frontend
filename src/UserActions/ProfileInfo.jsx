@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import { actions } from "../actions";
@@ -5,6 +6,7 @@ import editImg from "../assets/icons/edit.svg";
 import DoneImg from "../assets/icons/like.svg";
 import { useAxious } from "../hooks/useAxious";
 import { useProfile } from "../hooks/useProfile";
+import { baseUrl } from "../utility";
 export default function ProfileInfo({ otherUser,setOtherUser }) {
   const { api } = useAxious();
 
@@ -26,10 +28,10 @@ export default function ProfileInfo({ otherUser,setOtherUser }) {
 
     try {
       const response = await api.patch(
-        `${import.meta.env.VITE_SERVER_BASE_URL}/profile/`,
+        `${baseUrl()}/auth/profile/`,
         {
-          firstName: state?.user?.firstName,
-          lastName: state?.user?.lastName,
+          // firstName: state?.user?.firstName,
+          // lastName: state?.user?.lastName,
           bio,
         }
       );

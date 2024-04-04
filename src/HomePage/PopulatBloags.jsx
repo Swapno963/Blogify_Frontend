@@ -39,7 +39,7 @@ export default function PopulatBloags() {
             <p className="text-slate-600 text-sm">
               by
               <Link
-                className="hover:text-gray-300"
+                className="hover:text-gray-300 text-blue-300 font-semibold"
                 to={`/profile/${stringToObj(blog?.user).id}`}
               >
                 {" "}

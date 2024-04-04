@@ -27,13 +27,13 @@ export default function NormalBlogs() {
         const response = await axios.get(
           `${baseUrl()}/blogs/blog/?limit=${blogPerPage}&page=${page}`
         );
-        
+
         if (response.status === 200) {
           console.log(response);
           if (response?.data?.next === null) {
             haseMoreOut = false;
             // setHasMOre(false); //aita kaj kore na
-            console.log("sala tham amr r nei!",hasMore);
+            console.log("sala tham amr r nei!", hasMore);
             if (response?.data?.results?.length > 0) {
               const data = response?.data?.results;
               setBlogs((prevProducts) => [...prevProducts, ...data]);
@@ -60,12 +60,13 @@ export default function NormalBlogs() {
     const onIntersection = (items) => {
       const loaderItem = items[0];
 
-      if ( haseMoreOut) {
+      if (haseMoreOut) {
         loadBlog();
       }
       // if (loaderItem.isIntersecting && hasMore) {
       //   loadBlog();
       // }
+      console.log(hasMore);
     };
     const observer = new IntersectionObserver(onIntersection);
 
@@ -80,7 +81,7 @@ export default function NormalBlogs() {
   });
 
   return (
-    <section className=" ">
+    <section className="overflow-auto">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-7 gap-4">
           <div className="space-y-3 md:col-span-5  h-screen">

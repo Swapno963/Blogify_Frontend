@@ -26,13 +26,15 @@ export default function SingleBlog() {
   // const newAuthor = stringToObj(singleBlog?.author)
   console.log(singleBlog);
 
-  console.log(singleBlog);
+  // console.log(singleBlog);
   const textWithNewlines = singleBlog?.content;
-  const htmlContent = textWithNewlines?.replace(/\n/g, "<br>");
+  // const textWithNewlines = "hello \njfdk";
+  const htmlContent = singleBlog?.content?.replace(/\n/g, "<br />");
+  console.log(htmlContent);
   return (
     <>
       <main className="pb-[200px]">
-        <section >
+        <section>
           <div className="container text-center py-8">
             <h1 className="font-bold text-3xl md:text-5xl">
               {singleBlog?.title}

@@ -31,18 +31,18 @@ export default function Profile() {
   //   setShowYourBlog(false)
   // }
   useEffect(() => {
-    // dispatch({ type: actions?.profile?.DATA_FETCHING });
+    dispatch({ type: actions?.profile?.DATA_FETCHING });
     const fetchProfile = async () => {
       try {
         const response = await axios.get(
           `${baseUrl()}/auth/showProfile/${id}/`
         );
         if (response.status === 200) {
-          console.log("profile log response :", response);
-          // dispatch({
-          //   type: actions?.profile?.DATA_FETCHED,
-          //   data: response.data,
-          // });
+          // console.log("profile log response :", response);
+          dispatch({
+            type: actions?.profile?.DATA_FETCHED,
+            data: response.data,
+          });
           setOtherUser(response?.data);
           // console.log('response?.data',response?.data);
           // if(response?.data?.id === state?.user?.id){
@@ -54,7 +54,7 @@ export default function Profile() {
           // console.log(showEditOpt);
         }
       } catch (error) {
-        console.log(error);
+        // console.log(error);
         dispatch({
           type: actions?.profile?.DATA_FETCH_ERROR,
           error: error.message,
@@ -68,11 +68,11 @@ export default function Profile() {
   if (state?.loading) {
     return <div> Fetching your Profile data...</div>;
   }
-  console.log(otherUser);
+  // console.log(state);
 
   return (
     <>
-      <main className="mx-auto max-w-[1020px] py-8">
+      <main className="mx-auto py-8 mb-[67px]">
         <div className="container">
           <div className="flex flex-col items-center py-8 text-center">
             <ProfileImage otherUser={otherUser} setOtherUser={setOtherUser} />

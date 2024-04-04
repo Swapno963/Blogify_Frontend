@@ -34,8 +34,8 @@ export default function NormalBlogCard({ bl, setBlogs, blogs }) {
 
   return (
     <>
-      <Link to={`/detail/${id}`} className="blog-card">
-        <img className="blog-thumb" src={thumbnail} alt="" />
+      <Link to={`/detail/${id}`} className="blog-card my-6 py-3 hover:border-cyan-300 shadow-sm">
+        <img className="blog-thumb" src={thumbnail} alt="" /> 
         <div className="mt-2 relative">
           <p>
             <h3 className="text-slate-300 text-xl lg:text-2xl">
@@ -64,12 +64,12 @@ export default function NormalBlogCard({ bl, setBlogs, blogs }) {
               </div>
 
               <div>
-                <h5 className="text-slate-500 text-sm">
+                <h5 className="text-slate-300 text-xl font-bold ">
                   <Link to={`/profile/${authorObject?.id}`}>
-                    {authorObject?.firstName}
+                  {authorObject?.firstName} {authorObject?.lastName}
                   </Link>
                 </h5>
-                <div className="flex items-center text-xs text-slate-700">
+                <div className="flex items-center  text-slate-600 ">
                   <span>{getDateDifferenceFromNow(createdAt)}</span>
                 </div>
               </div>

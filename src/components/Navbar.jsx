@@ -23,19 +23,15 @@ export default function Navbar({
   const { state, dispatch } = useProfile();
   // console.log(state);
   return (
-    <header>
+    <header className="h-20 flex items-center">
       <nav className="container">
-        {/* <!-- Logo --> */}
         <div>
           <Link to="/">
             <img className="w-24" src={logo} alt="lws" />
           </Link>
         </div>
 
-        {/* <!-- Actions - Login, Write, Home, Search -->
-                <!-- Notes for Developers -->
-                <!-- For Logged in User - Write, Profile, Logout Menu -->
-                <!-- For Not Logged in User - Login Menu --> */}
+
         <Link
           onClick={() => setShowSearch(!showSearch)}
           to="#"
@@ -97,16 +93,7 @@ export default function Navbar({
                     </span>
                   </Link>
                 </li>
-                {/* <li>
-                  <Link
-                    onClick={() => setShowSearch(!showSearch)}
-                    to="#"
-                    className="flex items-center gap-2 cursor-pointer"
-                  >
-                    <img src={searchLogo} alt="Search" />
-                    <span>Search</span>
-                  </Link>
-                </li> */}
+
                 <Logout />
               </>
             )}

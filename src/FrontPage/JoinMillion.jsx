@@ -18,7 +18,7 @@ export default function JoinMillion() {
         backgroundSize: "cover",
       };
   return (
-    <section className="text-white min-h-screen relative bg-orange-100">
+    <section className="text-white min-h-screen relative bg-orange-100 opacity-100">
       <div className="absolute inset-0 flex flex-col justify-center items-center z-10">
         <h2 className="font-bold text-6xl pb-6">Join millions of others</h2>
         <p className="font-semibold text-md text-center text-2xl pb-6">

@@ -11,8 +11,7 @@ export default function FrontPage() {
       <KnowAudience />
       <Counter />
       <Review />
-        
-    <JoinMillion/>
+      <JoinMillion />
     </>
   );
 }

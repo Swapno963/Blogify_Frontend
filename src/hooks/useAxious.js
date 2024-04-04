@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { api } from "../api";
 import useAuth from "./useAuth";
+import { baseUrl } from "../utility";
 export const useAxious = () => {
   const { auth, updateData } = useAuth();
   useEffect(() => {
@@ -25,18 +26,24 @@ export const useAxious = () => {
       async (error) => {
         console.log("error from hook : ", error);
         const originalRequest = error.config;
-        if (error?.response?.status === 401 && !originalRequest?._retry) {
+
+        if (error?.response?.status === 401) {
           originalRequest._retry = true;
           try {
             const refreshToken = auth?.refreshToken;
             const response = await axios.post(
-              `${import.meta.env.VITE_SERVER_BASE_URL}/auth/refresh-token`,
-              { refreshToken }
+              `${baseUrl()}/auth/token/refresh/`,
+              { refresh: refreshToken }
             );
-            const { token } = response.data;
-            console.log(`new token : ${token}`);
-            updateData({ ...auth, authToken: token });
-            originalRequest.headers.Authorization = `Bearer ${token}`;
+            console.log(
+              "response after trying to ues refreshtoken :",
+              response
+            );
+            const { access
+            } = response.data;
+            console.log(`new token : ${access}`);
+            updateData({ ...auth, authToken: access });
+            originalRequest.headers.Authorization = `Bearer ${access}`;
             return axios(originalRequest);
           } catch (error) {
             throw error;
@@ -48,7 +55,7 @@ export const useAxious = () => {
           console.log("came to 403");
           originalRequest._retry = true;
           try {
-              const refreshToken = auth?.refreshToken;
+            const refreshToken = auth?.refreshToken;
             const response = await axios.post(
               `${import.meta.env.DJANGO_SERVER_BASE_URL}/auth/refresh-token`,
               { refreshToken }

@@ -28,7 +28,7 @@ export default function App() {
         darkMode ? "bg-[#030317] text-white " : "text-gray-800 bg-gray-50"
       }
     >
-      <div className="mb-[-128px]">
+      <div className="">
         <Navbar
           toggleDarkMode={toggleDarkMode}
           darkMode={darkMode}
@@ -54,7 +54,7 @@ export default function App() {
 
           {/* without protected routes */}
           <Route element={<FrontPage />} path="/" exact />
-          <Route element={<NormalBlogs />} path="/blogs"/>
+          <Route element={<NormalBlogs />} path="/blogs" />
           <Route element={<Login />} path="login" />
           <Route element={<Register />} path="register" />
           <Route element={<NotFound />} path="*" />

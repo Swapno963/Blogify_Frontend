@@ -48,22 +48,26 @@ export default function WriteBlogForm({ isEditing = false, blogToEdit = {} }) {
     }
   };
   const submitForm = (Data) => {
-    console.log(data);
+    // console.log(data);
     const formData = {
-      'title': Data.title,
-      'thumbnail': data.thumbnail
-      ,
-      'content': Data.content,
+      title: Data.title,
+      thumbnail: data.thumbnail,
+      content: Data.content,
       // "tag": [],
-      'likes': "0",
-      'user': auth.user?.id,
+      likes: "0",
+      user: auth.user?.id,
     };
-    console.log(FormData);
+    // console.log(Data);
+    console.log(formData);
     UploadToServer(formData);
   };
 
-  const postRequest = async (Data) => {
-    const responce = await axios.post(`${baseUrl()}/blogs/write/`,Data);
+  const postRequest = async (data) => {
+    const responce = await axios.post(`${baseUrl()}/blogs/write/`, data, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
     return responce;
   };
   const patchRequest = async (Data) => {
@@ -96,6 +100,7 @@ export default function WriteBlogForm({ isEditing = false, blogToEdit = {} }) {
       action="#"
       method="POST"
       className="createBlog"
+      encType="multipart/form-data"
     >
       <div className="grid place-items-center bg-slate-600/20 h-[150px] rounded-md my-4">
         <div className="flex items-center gap-4 hover:scale-110 transition-all cursor-pointer">
@@ -133,18 +138,6 @@ export default function WriteBlogForm({ isEditing = false, blogToEdit = {} }) {
           />
         </Field>
       </div>
-
-      {/* <div className="mb-6">
-        <Field label="" error={errors.tag}>
-          <input
-            {...register("tag", { required: "Tags  is required!" })}
-            type="text"
-            id="tag"
-            name="tag"
-            placeholder="Your Comma Separated Tags Ex. JavaScript, React, Node, Express,"
-          />
-        </Field>
-      </div> */}
 
       <div className="mb-6">
         <Field label="" error={errors.content}>

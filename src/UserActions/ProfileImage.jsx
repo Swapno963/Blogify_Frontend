@@ -1,8 +1,10 @@
+/* eslint-disable react/prop-types */
 import { useRef } from "react";
 import { actions } from "../actions";
 import editImg from "../assets/icons/edit.svg";
 import { useAxious } from "../hooks/useAxious";
 import { useProfile } from "../hooks/useProfile";
+import { baseUrl } from "../utility";
 
 export default function ProfileImage({ otherUser, setOtherUser }) {
   // eslint-disable-next-line no-unused-vars
@@ -24,7 +26,7 @@ export default function ProfileImage({ otherUser, setOtherUser }) {
       }
 
       const response = await api.post(
-        `${import.meta.env.VITE_SERVER_BASE_URL}/profile/avatar`,
+        `${baseUrl()}/profile/avatar`,
         formData
       );
       console.log(response);

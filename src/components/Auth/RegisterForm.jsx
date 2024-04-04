@@ -23,7 +23,7 @@ export default function RegisterForm() {
     try {
       const responce = await axios.post(
         // `${import.meta.env.DJANGO_SERVER_BASE_URL}/auth/register/`,
-        `http://127.0.0.1:8000/auth/register/auth/register/`,
+        `http://127.0.0.1:8000/auth/register/`,
         data
       );
 
@@ -143,7 +143,7 @@ export default function RegisterForm() {
           type="submit"
           className="w-full bg-indigo-600 text-white p-3 rounded-md hover:bg-indigo-700 transition-all duration-200"
         >
-          Login
+          Register
         </button>
       </div>
       <p className="text-center">

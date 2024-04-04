@@ -24,7 +24,7 @@ export default function LoginForm() {
   } = useForm();
 
   const submitForm = async (formData) => {
-    console.log(formData);
+    // console.log(formData);
     // make an api cal
     // will will return tokens and logedin
     try {
@@ -61,7 +61,7 @@ export default function LoginForm() {
     }
   };
   return (
-    <form onSubmit={handleSubmit(submitForm)} action="" >
+    <form onSubmit={handleSubmit(submitForm)} action="" className="py-12">
       <div className="mb-6">
         <Field label="Email" error={errors.email}>
           <input

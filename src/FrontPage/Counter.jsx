@@ -9,7 +9,7 @@ export default function Counter() {
     backgroundSize: "cover",
   };
   return (
-    <section className="bg-indigo-500 text-white opacity-80" style={divStyle}>
+    <section className="bg-indigo-500 text-white opacity-100" style={divStyle}>
       <div className="grid grid-cols-3 gap-4 text-center">
         <div className="pt-12 pb-10">
           <p className="text-6xl">90k+</p>

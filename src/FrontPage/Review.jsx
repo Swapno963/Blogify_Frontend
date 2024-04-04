@@ -26,9 +26,13 @@ const reviews = [
 ];
 
 export default function Review() {
+  const containerStyles = {
+    backgroundColor: "rgb(46 65 106)    ",
+  };
+
   return (
     // bg-indigo-300
-    <section className=" pb-12">
+    <section style={containerStyles} className=" pb-12">
       <div className="row py-12 ">
         <div className="text-center mx-auto max-w-2xl pt-32 pb-12">
           <h2 className="text-4xl font-bold tracking-tight  sm:text-6xl">
@@ -41,11 +45,11 @@ export default function Review() {
             eaque.
           </p>
         </div>
-        <div className="grid grid-cols-3 gap-4 text-center mx-12">
+        <div className="grid grid-cols-3 gap-4 text-center mx-12 ">
           {reviews.map((rev) => (
             <div
               key={rev.id}
-              className="pt-12 pb-10 shadow-2xl p-6 rounded-md"
+              className="pt-12 pb-10 shadow-2xl p-6 rounded-md bg-indigo-900 opacity-80"
             >
               <p className="">{rev.message}</p>
               <div className="mt-8 flex items-center gap-x-4">
