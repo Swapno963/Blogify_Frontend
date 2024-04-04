@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import FavouritBlogs from "./FavouritBlogs";
 import NormalBlogCard from "./NormalBlogCard";
 import PopulatBloags from "./PopulatBloags";
@@ -11,6 +11,9 @@ import axios, { isCancel, AxiosError } from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { baseUrl } from "../utility";
+import { ProfileContext } from "../context";
+import { actions } from "../actions";
+import { useProfile } from "../hooks/useProfile";
 
 const blogPerPage = 2;
 let haseMoreOut = true;
@@ -20,6 +23,9 @@ export default function NormalBlogs() {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMOre] = useState(true);
   const loaderRef = useState(null);
+  // useing context
+  const { state, dispatch } = useProfile();
+  console.log("state is : ", state);
 
   useEffect(() => {
     const loadBlog = async () => {
@@ -37,7 +43,12 @@ export default function NormalBlogs() {
             if (response?.data?.results?.length > 0) {
               const data = response?.data?.results;
               setBlogs((prevProducts) => [...prevProducts, ...data]);
-              // setPage((prevPage) => prevPage + 1);
+
+              // seting to context
+              dispatch({
+                type: actions?.profile?.DATA_FETCHED,
+                data: response?.data?.results,
+              });
             }
 
             toast("There is no new blog!");
@@ -45,6 +56,11 @@ export default function NormalBlogs() {
             const data = response?.data?.results;
             setBlogs((prevProducts) => [...prevProducts, ...data]);
             setPage((prevPage) => prevPage + 1);
+            // seting to context
+            dispatch({
+              type: actions?.profile?.DATA_FETCHED,
+              data: response?.data?.results,
+            });
           }
         }
       } catch (error) {
@@ -85,8 +101,8 @@ export default function NormalBlogs() {
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-7 gap-4">
           <div className="space-y-3 md:col-span-5  h-screen">
-            {blogs &&
-              blogs.map((bl) => (
+            {state?.posts &&
+              state?.posts?.map((bl) => (
                 <NormalBlogCard
                   blogs={blogs}
                   key={bl.id}

@@ -20,13 +20,13 @@ const profileReducer = (state, action) => {
 
       return {
         ...state,
-        loading: false,
-        user: action.data,
-        blogs: action.data.blogs,
+        // loading: false,
+        // user: action.data,
+        posts:[...state.posts, ...action.data],
       };
     }
     case actions.profile.DATA_FETCH_ERROR: {
-      console.log("from reducer:", action.type, "and data:", action.data);
+      // console.log("from reducer:", action.type, "and data:", action.data);
 
       return {
         ...state,
@@ -35,7 +35,7 @@ const profileReducer = (state, action) => {
       };
     }
     case actions.profile.USER_DATA_EDITED: {
-      console.log("from reducer:", action.type, "and data:", action);
+      // console.log("from reducer:", action.type, "and data:", action);
      
       return {
         ...state,
@@ -44,7 +44,7 @@ const profileReducer = (state, action) => {
       };
     }
     case actions.profile.IMAGE_UPDATED: {
-      console.log("from reducer:", action.type, "and data:", action.data);
+      // console.log("from reducer:", action.type, "and data:", action.data);
 
       return {
         ...state,
