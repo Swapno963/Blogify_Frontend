@@ -40,7 +40,7 @@ export default function Profile() {
         if (response.status === 200) {
           // console.log("profile log response :", response);
           dispatch({
-            type: actions?.profile?.DATA_FETCHED,
+            type: actions?.profile?.USER_DATA_EDITED,
             data: response.data,
           });
           setOtherUser(response?.data);

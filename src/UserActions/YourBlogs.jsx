@@ -6,7 +6,7 @@ export default function YourBlogs({ blog }) {
   console.log(blog);
   return (
     <>
-      <div className="blog-card">
+      <div className="blog-card min-w-100px">
         <img className="blog-thumb" src={blog?.thumbnail} alt="" />
         <div className="mt-2">
           <h3 className="text-slate-300 text-xl lg:text-2xl">{blog?.title.split(" ").slice(0, 10).join(" ")}</h3>
