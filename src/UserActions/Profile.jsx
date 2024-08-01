@@ -70,18 +70,22 @@ export default function Profile() {
       <main className="mx-auto py-8 mb-[67px]">
         <div className="container">
           <div className="flex flex-col items-center py-8 text-center">
+            {/* user image handel */}
             <ProfileImage otherUser={otherUser} setOtherUser={setOtherUser} />
+
+            {/* name and email */}
             <div>
               {otherUser?.first_name && (
                 <h3 className="text-2xl font-semibold text-white lg:text-[28px]">
                   {otherUser?.first_name} {otherUser?.last_name}
                 </h3>
               )}
-
               <p className="leading-[231%] lg:text-lg">{state?.user?.email}</p>
             </div>
+
+            {/*Bio  */}
             <ProfileInfo otherUser={otherUser} setOtherUser={setOtherUser} />
-            {/* <h3>lkdk</h3> */}
+
             {/* for blog section */}
             {otherUser?.BlogUser?.length == 0 ? (
               <h2 className="mt-6 text-xl lg:mt-8 lg:text-2xl ">

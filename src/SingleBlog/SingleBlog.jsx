@@ -24,7 +24,7 @@ export default function SingleBlog() {
   }, [id]);
 
   const htmlContent = singleBlog?.content?.replaceAll("\\n", "<br/>");
-  console.log(htmlContent);
+  // console.log(htmlContent);
   return (
     <>
       <main className="pb-[200px]">
@@ -82,7 +82,6 @@ export default function SingleBlog() {
       <div className="floating-action">
         <ul className="floating-action-menus">
           <Like singleBlog={singleBlog} setSingleBlog={setSingleBlog} />
-
           <Love singleBlog={singleBlog} setSingleBlog={setSingleBlog} />
           <a href="#comments">
             <li>

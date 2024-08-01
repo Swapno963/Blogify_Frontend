@@ -3,11 +3,10 @@
 import { useEffect, useState } from "react";
 import { actions } from "../actions";
 import editImg from "../assets/icons/edit.svg";
-import DoneImg from "../assets/icons/like.svg";
 import { useAxious } from "../hooks/useAxious";
 import { useProfile } from "../hooks/useProfile";
 import { baseUrl } from "../utility";
-export default function ProfileInfo({ otherUser,setOtherUser }) {
+export default function ProfileInfo({ otherUser, setOtherUser }) {
   const { api } = useAxious();
 
   const [editMode, setEditMode] = useState(false);
@@ -27,17 +26,14 @@ export default function ProfileInfo({ otherUser,setOtherUser }) {
     dispatch({ type: actions.profile.DATA_FETCHING });
 
     try {
-      const response = await api.patch(
-        `${baseUrl()}/auth/profile/`,
-        {
-          // firstName: state?.user?.firstName,
-          // lastName: state?.user?.lastName,
-          bio,
-        }
-      );
+      const response = await api.patch(`${baseUrl()}/auth/profile/`, {
+        // firstName: state?.user?.firstName,
+        // lastName: state?.user?.lastName,
+        bio,
+      });
       // console.log("response is :", response);
       if (response.status === 200) {
-        setOtherUser({...otherUser, bio:bio})
+        setOtherUser({ ...otherUser, bio: bio });
         dispatch({
           type: actions.profile.USER_DATA_EDITED,
           data: response?.data?.user,
@@ -77,9 +73,10 @@ export default function ProfileInfo({ otherUser,setOtherUser }) {
       ) : (
         <button
           onClick={handleBioEdit}
-          className="flex-center h-7 w-7 rounded-full"
+          className=" rounded-md font-bold bg-blue-700 px-3 py-2"
         >
-          <img src={DoneImg} alt="DoneImg" />
+          {/* <img src={DoneImg} alt="DoneImg" /> */}
+          Update
         </button>
       )}
     </div>
