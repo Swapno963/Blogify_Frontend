@@ -57,6 +57,6 @@ export const stringToObj = (author) => {
 };
 
 export const baseUrl = () => {
-  return `http://127.0.0.1:8000`;
-  // return `https://blogify-backend-vstx.onrender.com`;
+  // return `http://127.0.0.1:8000`;
+  return `https://blogify-backend-vstx.onrender.com`;
 };

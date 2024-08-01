@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
 import { Route, Routes } from "react-router-dom";
+import FrontPage from "./FrontPage/FrontPage";
 import NormalBlogs from "./HomePage/NormalBlogs";
 import EditSingleBlog from "./SingleBlog/EditSingleBlog";
 import SingleBlog from "./SingleBlog/SingleBlog";
@@ -14,7 +15,6 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import NotFound from "./components/NotFound";
 import PrivetRoutes from "./routes/PrivetRoutes";
-import FrontPage from "./FrontPage/FrontPage";
 
 export default function App() {
   const [showSearch, setShowSearch] = useState(false);
@@ -25,7 +25,7 @@ export default function App() {
   return (
     <div
       className={
-        darkMode ? "bg-[#030317] text-white " : "text-gray-800 bg-gray-50"
+        darkMode ? "bg-gray-300 text-gray-800 " : "text-gray-800 bg-gray-50"
       }
     >
       <div className="">

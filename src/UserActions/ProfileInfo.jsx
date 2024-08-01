@@ -71,13 +71,21 @@ export default function ProfileInfo({ otherUser, setOtherUser }) {
           <img src={editImg} alt="Edit" />
         </button>
       ) : (
-        <button
-          onClick={handleBioEdit}
-          className=" rounded-md font-bold bg-blue-700 px-3 py-2"
-        >
-          {/* <img src={DoneImg} alt="DoneImg" /> */}
-          Update
-        </button>
+        <div className="">
+          <button
+            onClick={handleBioEdit}
+            className=" rounded-md font-bold bg-blue-700 px-3 py-2 mb-3"
+          >
+            Update
+          </button>{" "}
+          <br />
+          <button
+            onClick={() => setEditMode(false)}
+            className=" rounded-md font-bold bg-gray-700 px-3 py-2"
+          >
+            Cancle
+          </button>
+        </div>
       )}
     </div>
   );

@@ -25,10 +25,7 @@ export default function ProfileImage({ otherUser, setOtherUser }) {
         formData.append("avatar", file);
       }
 
-      const response = await api.post(
-        `${baseUrl()}/profile/avatar`,
-        formData
-      );
+      const response = await api.post(`${baseUrl()}/profile/avatar`, formData);
       console.log(response);
       setOtherUser(response?.data?.user);
       if (response.status === 200) {
@@ -55,9 +52,7 @@ export default function ProfileImage({ otherUser, setOtherUser }) {
         </div>
       ) : (
         <img
-          src={`${import.meta.env.VITE_SERVER_BASE_URL}/uploads/avatar/${
-            otherUser?.avatar
-          }`}
+          src={`${baseUrl()}/uploads/avatar/${otherUser?.avatar}`}
           alt="img"
         />
       )}

@@ -26,13 +26,8 @@ const reviews = [
 ];
 
 export default function Review() {
-  const containerStyles = {
-    backgroundColor: "rgb(46 65 106)    ",
-  };
-
   return (
-    // bg-indigo-300
-    <section style={containerStyles} className=" pb-12">
+    <section className=" pb-12">
       <div className="row py-12 ">
         <div className="text-center mx-auto max-w-2xl  pb-12">
           <h2 className="text-4xl pb-4 font-bold tracking-tight  sm:text-6xl">
@@ -45,83 +40,28 @@ export default function Review() {
             eaque.
           </p>
         </div>
-        <div className="grid grid-cols-3 gap-4 text-center mx-12 ">
-          {reviews.map((rev) => (
-            <div
-              key={rev.id}
-              className="col-span-3 sm:col-span-1 pt-12 pb-10 shadow-2xl p-6 rounded-md bg-indigo-900 opacity-80"
-            >
-              <p className="">{rev.message}</p>
-              <div className="mt-8 flex items-center gap-x-4">
-                <img
-                  className="h-10 w-10 rounded-full "
-                  src={rev.avatar}
-                  alt=""
-                />
-                <div>
-                  <h4 className="font-semibold">{rev.userName}</h4>
-                  <small>{rev.date}</small>
+        <div className=" w-4/5  mx-auto">
+          <div className="grid grid-cols-3 gap-4 text-center ">
+            {reviews.map((rev) => (
+              <div
+                key={rev.id}
+                className="col-span-3 sm:col-span-1 pt-12 pb-10 shadow-2xl p-6 rounded-md  opacity-80"
+              >
+                <p className="">{rev.message}</p>
+                <div className="mt-8 flex items-center gap-x-4">
+                  <img
+                    className="h-10 w-10 rounded-full "
+                    src={rev.avatar}
+                    alt=""
+                  />
+                  <div>
+                    <h4 className="font-semibold">{rev.userName}</h4>
+                    <small>{rev.date}</small>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-          {/* <div className="pt-12 pb-10 shadow-2xl p-6 bg-indigo-400 rounded-md">
-            <p className="text-gray-900">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat
-              eius delectus maiores molestiae fugiat veritatis deleniti quos
-              cumque voluptatibus qui sequi ipsam, eos odio unde, suscipit in
-              debitis itaque quam.
-            </p>
-            <div className="mt-8 flex items-center gap-x-4">
-              <img
-                className="h-10 w-10 rounded-full bg-gray-50"
-                src="./images/avatar-1.jpg"
-                alt=""
-              />
-              <div>
-                <h4 className="font-semibold">Swapno Mondol</h4>
-                <small>2 March 2024</small>
-              </div>
-            </div>
+            ))}
           </div>
-          <div className="pt-12 pb-10 shadow-2xl p-6 bg-indigo-400 rounded-md">
-            <p className="text-gray-900">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat
-              eius delectus maiores molestiae fugiat veritatis deleniti quos
-              cumque voluptatibus qui sequi ipsam, eos odio unde, suscipit in
-              debitis itaque quam.
-            </p>
-            <div className="mt-8 flex items-center gap-x-4">
-              <img
-                className="h-10 w-10 rounded-full bg-gray-50"
-                src="./images/avatar-1.jpg"
-                alt=""
-              />
-              <div>
-                <h4 className="font-semibold">Swapno Mondol</h4>
-                <small>2 March 2024</small>
-              </div>
-            </div>
-          </div>
-          <div className="pt-12 pb-10 shadow-2xl p-6 bg-indigo-400 rounded-md">
-            <p className="text-gray-900">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat
-              eius delectus maiores molestiae fugiat veritatis deleniti quos
-              cumque voluptatibus qui sequi ipsam, eos odio unde, suscipit in
-              debitis itaque quam.
-            </p>
-            <div className="mt-8 flex items-center gap-x-4">
-              <img
-                className="h-10 w-10 rounded-full bg-gray-50"
-                src="./images/avatar-1.jpg"
-                alt=""
-              />
-              <div>
-                <h4 className="font-semibold">Swapno Mondol</h4>
-                <small>2 March 2024</small>
-              </div>
-            </div>
-          </div> */}
         </div>
       </div>
     </section>

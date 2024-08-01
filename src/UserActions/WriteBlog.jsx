@@ -2,9 +2,9 @@ import WriteBlogForm from "./WriteBlogForm";
 
 export default function WriteBlog() {
   return (
-    <main>
+    <main className="min-h-screen flex justify-center items-center">
       <section>
-        <div className="container">
+        <div className="container ">
           <WriteBlogForm />
         </div>
       </section>

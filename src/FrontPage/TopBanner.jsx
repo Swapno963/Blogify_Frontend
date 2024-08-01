@@ -10,7 +10,7 @@ export default function TopBanner() {
     backgroundSize: "cover",
   };
   return (
-    <div className="bg-white opacity-90 " style={divStyle}>
+    <div className="bg-white " style={divStyle}>
       <div className="relative  px-6 pt-14 lg:px-8">
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="text-center opacity-100">

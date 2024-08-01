@@ -10,7 +10,7 @@ export default function Counter() {
   };
   return (
     <section
-      className="h-[80vh] sm:h-[40vh] bg-indigo-500 text-white opacity-100 "
+      className="h-[80vh] sm:h-[30vh] bg-indigo-500 text-white opacity-100 "
       style={divStyle}
     >
       <div className="grid grid-cols-3 gap-4 text-center ">

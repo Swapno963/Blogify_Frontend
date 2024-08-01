@@ -23,11 +23,11 @@ export default function Navbar({
   const { state, dispatch } = useProfile();
   // console.log(state);
   return (
-    <header className="sm:h-20 h-auto sm:flex-col flex-row items-center">
-      <nav className="container">
+    <header className="bg-gray-800  sm:h-[100px] mb-[-1px]  h-auto sm:flex-col flex-row items-center">
+      <nav className="container   ">
         <div>
           <Link to="/">
-            <img className="w-24" src={logo} alt="lws" />
+            <img className="w-24 h-[65px]" src={logo} alt="lws" />
           </Link>
         </div>
 
@@ -44,7 +44,7 @@ export default function Navbar({
           <ul className="flex items-center space-x-5">
             <li>
               <button
-                className="bg-indigo-600 text-white px-6 py-2 md:py-3 rounded-md hover:bg-indigo-700 transition-all duration-200"
+                className="bg-indigo-600 text-white px-6 py-2  rounded-md hover:bg-indigo-700 transition-all duration-200"
                 onClick={toggleDarkMode}
               >
                 {darkMode ? "Light Mode" : "Dark Mode"}{" "}
@@ -53,7 +53,7 @@ export default function Navbar({
             <li>
               <Link
                 to="writeBlog"
-                className="bg-indigo-600 text-white px-6 py-2 md:py-3 rounded-md hover:bg-indigo-700 transition-all duration-200"
+                className="bg-indigo-600 text-white px-6 py-2  rounded-md hover:bg-indigo-700 transition-all duration-200"
               >
                 Write
               </Link>
