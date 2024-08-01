@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
 import logo from "../assets/blogify.png";
 import searchLogo from "../assets/icons/search.svg";
-import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-import Logout from "./Auth/Logout";
 import { useProfile } from "../hooks/useProfile";
+import Logout from "./Auth/Logout";
 
 export default function Navbar({
   darkMode,
@@ -23,7 +23,7 @@ export default function Navbar({
   const { state, dispatch } = useProfile();
   // console.log(state);
   return (
-    <header className="h-20 flex items-center">
+    <header className="sm:h-20 h-auto sm:flex-col flex-row items-center">
       <nav className="container">
         <div>
           <Link to="/">
@@ -31,15 +31,15 @@ export default function Navbar({
           </Link>
         </div>
 
-
         <Link
           onClick={() => setShowSearch(!showSearch)}
           to="#"
-          className="flex items-center gap-2 cursor-pointer"
+          className="flex items-center gap-2 cursor-pointer mt-[-20px] sm:mt-[0px]"
         >
           <img src={searchLogo} alt="Search" />
           <span>Search</span>
         </Link>
+
         <div>
           <ul className="flex items-center space-x-5">
             <li>

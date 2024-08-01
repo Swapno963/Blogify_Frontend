@@ -34,13 +34,13 @@ export default function Review() {
     // bg-indigo-300
     <section style={containerStyles} className=" pb-12">
       <div className="row py-12 ">
-        <div className="text-center mx-auto max-w-2xl pt-32 pb-12">
-          <h2 className="text-4xl font-bold tracking-tight  sm:text-6xl">
+        <div className="text-center mx-auto max-w-2xl  pb-12">
+          <h2 className="text-4xl pb-4 font-bold tracking-tight  sm:text-6xl">
             Testimonial
           </h2>
           <p className="pt-8 font-semibold ">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
-            nobis magni quas aut labore, similique eos! Pariatur magni et
+            <br /> nobis magni quas aut labore, similique eos! Pariatur magni et
             repellendus dolores aliquid totam, culpa animi qui, dolor velit ex
             eaque.
           </p>
@@ -49,7 +49,7 @@ export default function Review() {
           {reviews.map((rev) => (
             <div
               key={rev.id}
-              className="pt-12 pb-10 shadow-2xl p-6 rounded-md bg-indigo-900 opacity-80"
+              className="col-span-3 sm:col-span-1 pt-12 pb-10 shadow-2xl p-6 rounded-md bg-indigo-900 opacity-80"
             >
               <p className="">{rev.message}</p>
               <div className="mt-8 flex items-center gap-x-4">
