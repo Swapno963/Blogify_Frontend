@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <section className=" px-20  opacity-80 bg-gray-800">
+    <section className=" sm:px-20  px-8 opacity-80 bg-gray-800">
       <div className="grid grid-cols-4 gap-4 text-start px-2">
         <div className="pt-12 pb-10 col-span-4 sm:col-span-1">
           <h2 className="text-3xl font-bold ">BlogiFy</h2>

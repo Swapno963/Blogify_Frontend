@@ -40,21 +40,23 @@ export const getDateDifferenceFromNow = (fromDate) => {
   return message;
 };
 
-
-export const stringToObj = (author) =>{
-  const keyValuePairs = author.slice(1, -1).split(',');
+export const stringToObj = (author) => {
+  const keyValuePairs = author.slice(1, -1).split(",");
   const authorObject = {};
 
   // Loop through the key-value pairs and add them to the object
-  keyValuePairs.forEach(pair => {
-      const [key, value] = pair.trim().split(':').map(item => item.trim());
-      authorObject[key.replace(/'/g, '')] = value.replace(/'/g, '');
+  keyValuePairs.forEach((pair) => {
+    const [key, value] = pair
+      .trim()
+      .split(":")
+      .map((item) => item.trim());
+    authorObject[key.replace(/'/g, "")] = value.replace(/'/g, "");
   });
 
-  return authorObject
-} 
+  return authorObject;
+};
 
-export const baseUrl = () =>{
-  // return `http://127.0.0.1:8000`
-  return `https://blogify-backend-vstx.onrender.com`
-}
+export const baseUrl = () => {
+  // return `http://127.0.0.1:8000`;
+  return `https://blogify-backend-vstx.onrender.com`;
+};

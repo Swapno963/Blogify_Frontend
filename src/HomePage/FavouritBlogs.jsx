@@ -1,15 +1,19 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
-import { useAxious } from "../hooks/useAxious";
 import { Link } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
+import { useAxious } from "../hooks/useAxious";
 import { baseUrl, stringToObj } from "../utility";
-
 export default function FavouritBlogs() {
+  const { auth } = useAuth();
+  // console.log("from favourit auth is:", auth);
+
   const [favBlogs, setFabBlogs] = useState([]);
   const { api } = useAxious();
   useEffect(() => {
     const loadFavouritBlog = async () => {
       try {
+        if (auth.length == 0) return null;
         const response = await api.get(`${baseUrl()}/blogs/love`);
         // console.log(response);
         setFabBlogs(response?.data);

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import threeDots from "../assets/icons/3dots.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import threeDots from "../assets/icons/3dots.svg";
 import {
   getDateDifferenceFromNow,
   isCommentAuthor,
@@ -34,8 +34,11 @@ export default function NormalBlogCard({ bl, setBlogs, blogs }) {
 
   return (
     <>
-      <Link to={`/detail/${id}`} className="blog-card my-6 py-3 hover:border-cyan-300 shadow-sm">
-        <img className="blog-thumb" src={thumbnail} alt="" /> 
+      <Link
+        to={`/detail/${id}`}
+        className="blog-card my-6 py-3 hover:border-cyan-300 shadow-sm"
+      >
+        <img className="blog-thumb" src={thumbnail} alt="" />
         <div className="mt-2 relative">
           <p>
             <h3 className="text-slate-300 text-xl lg:text-2xl">
@@ -43,7 +46,7 @@ export default function NormalBlogCard({ bl, setBlogs, blogs }) {
             </h3>
           </p>
           <p className="mb-6 text-base text-slate-500 mt-1">
-            {content.split(" ").slice(0, 40).join(" ")}
+            {content.split(" ").slice(0, 20).join(" ")}
           </p>
 
           <div className="flex justify-between items-center">
@@ -66,7 +69,7 @@ export default function NormalBlogCard({ bl, setBlogs, blogs }) {
               <div>
                 <h5 className="text-slate-300 text-xl font-bold ">
                   <Link to={`/profile/${authorObject?.id}`}>
-                  {authorObject?.firstName} {authorObject?.lastName}
+                    {authorObject?.firstName} {authorObject?.lastName}
                   </Link>
                 </h5>
                 <div className="flex items-center  text-slate-600 ">

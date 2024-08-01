@@ -17,7 +17,7 @@ export default function Navbar({
   // if(auth.user){
   //   const { firstName, avatar, id } = auth?.user;
   // }
-  console.log("auth is:", auth);
+  // console.log("auth is:", auth);
 
   // eslint-disable-next-line no-unused-vars
   const { state, dispatch } = useProfile();
