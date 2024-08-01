@@ -1,10 +1,9 @@
-
-import { Link, useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import Field from "../common/Field";
-import useAuth from "../../hooks/useAuth";
 import axios from "axios";
-
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import { baseUrl } from "../../utility";
+import Field from "../common/Field";
 export default function RegisterForm() {
   const navigate = useNavigate();
   const { updateData } = useAuth();
@@ -12,18 +11,18 @@ export default function RegisterForm() {
     register,
     handleSubmit,
     formState: { errors },
-    setError
+    setError,
   } = useForm();
 
   const submitForm = async (formData) => {
     console.log(formData);
     // make an api cal
     // will will return tokens and logedin
-    const data = { ...formData}
+    const data = { ...formData };
     try {
       const responce = await axios.post(
         // `${import.meta.env.DJANGO_SERVER_BASE_URL}/auth/register/`,
-        `http://127.0.0.1:8000/auth/register/`,
+        `${baseUrl()}/auth/register/`,
         data
       );
 
@@ -40,7 +39,7 @@ export default function RegisterForm() {
       }
     } catch (error) {
       console.log(error);
-    //   console.log(error?.response?.data?.error);
+      //   console.log(error?.response?.data?.error);
       // setError("root.random",{
       //   type:"random",
       //   message:error?.response?.data?.error
@@ -53,7 +52,9 @@ export default function RegisterForm() {
       <div className="mb-6">
         <Field label="FirstName" error={errors.first_name}>
           <input
-            {...register("first_name", { required: "First Name Id is required!" })}
+            {...register("first_name", {
+              required: "First Name Id is required!",
+            })}
             type="text"
             id="first_name"
             name="first_name"
@@ -68,7 +69,9 @@ export default function RegisterForm() {
       <div className="mb-6">
         <Field label="Last Name" error={errors.last_name}>
           <input
-            {...register("last_name", { required: "Last Name Id is required!" })}
+            {...register("last_name", {
+              required: "Last Name Id is required!",
+            })}
             type="text"
             id="last_name"
             name="last_name"

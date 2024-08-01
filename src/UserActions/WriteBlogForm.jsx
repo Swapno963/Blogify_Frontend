@@ -1,14 +1,12 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import { useForm } from "react-hook-form";
-import Field from "../components/common/Field";
 import { useEffect, useRef, useState } from "react";
-import { useAxious } from "../hooks/useAxious";
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import img from "../assets/blogs/taiulwind-cn-thumb.jpg";
-import axios from "axios";
-import { baseUrl } from "../utility";
+import Field from "../components/common/Field";
 import useAuth from "../hooks/useAuth";
+import { useAxious } from "../hooks/useAxious";
+import { baseUrl } from "../utility";
 export default function WriteBlogForm({ isEditing = false, blogToEdit = {} }) {
   const { auth } = useAuth();
   const navigate = useNavigate();
@@ -63,7 +61,7 @@ export default function WriteBlogForm({ isEditing = false, blogToEdit = {} }) {
   };
 
   const postRequest = async (data) => {
-    const responce = await axios.post(`${baseUrl()}/blogs/write/`, data, {
+    const responce = await api.post(`${baseUrl()}/blogs/write/`, data, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -72,7 +70,7 @@ export default function WriteBlogForm({ isEditing = false, blogToEdit = {} }) {
   };
   const patchRequest = async (Data) => {
     const responce = await api.patch(
-      `${import.meta.env.VITE_SERVER_BASE_URL}/blogs/${blogToEdit?.id}`,
+      `$${baseUrl()}/blogs/${blogToEdit?.id}`,
       Data
     );
     return responce;

@@ -1,11 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
-import commentImg from "../assets/icons/comment.svg";
-import Comments from "./Comments";
-import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import commentImg from "../assets/icons/comment.svg";
+import { baseUrl, stringToObj } from "../utility";
+import Comments from "./Comments";
 import Like from "./Like";
 import Love from "./Love";
-import { baseUrl, stringToObj } from "../utility";
 export default function SingleBlog() {
   const { id } = useParams();
   // console.log("you have clidked :", id);
@@ -23,13 +23,7 @@ export default function SingleBlog() {
       });
   }, [id]);
 
-  // const newAuthor = stringToObj(singleBlog?.author)
-  console.log(singleBlog);
-
-  // console.log(singleBlog);
-  const textWithNewlines = singleBlog?.content;
-  // const textWithNewlines = "hello \njfdk";
-  const htmlContent = singleBlog?.content?.replace(/\n/g, "<br />");
+  const htmlContent = singleBlog?.content?.replaceAll("\\n", "<br/>");
   console.log(htmlContent);
   return (
     <>

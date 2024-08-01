@@ -1,18 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { actions } from "../actions";
 import useAuth from "../hooks/useAuth";
 import { useAxious } from "../hooks/useAxious";
-import editImg from "../assets/icons/edit.svg";
-import DoneImg from "../assets/icons/like.svg";
 import { useProfile } from "../hooks/useProfile";
-import { actions } from "../actions";
-import ProfileInfo from "./ProfileInfo";
-import ProfileImage from "./ProfileImage";
-import { useNavigate, useParams } from "react-router-dom";
-import YourBlogs from "./YourBlogs";
-import axios from "axios";
 import { baseUrl } from "../utility";
+import ProfileImage from "./ProfileImage";
+import ProfileInfo from "./ProfileInfo";
+import YourBlogs from "./YourBlogs";
 
 export default function Profile() {
   const navigate = useNavigate();
@@ -34,9 +31,7 @@ export default function Profile() {
     dispatch({ type: actions?.profile?.DATA_FETCHING });
     const fetchProfile = async () => {
       try {
-        const response = await axios.get(
-          `${baseUrl()}/auth/showProfile/${id}/`
-        );
+        const response = await api.get(`${baseUrl()}/auth/showProfile/${id}/`);
         if (response.status === 200) {
           // console.log("profile log response :", response);
           dispatch({

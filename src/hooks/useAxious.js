@@ -3,8 +3,8 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { api } from "../api";
-import useAuth from "./useAuth";
 import { baseUrl } from "../utility";
+import useAuth from "./useAuth";
 export const useAxious = () => {
   const { auth, updateData } = useAuth();
   useEffect(() => {
@@ -39,8 +39,7 @@ export const useAxious = () => {
               "response after trying to ues refreshtoken :",
               response
             );
-            const { access
-            } = response.data;
+            const { access } = response.data;
             console.log(`new token : ${access}`);
             updateData({ ...auth, authToken: access });
             originalRequest.headers.Authorization = `Bearer ${access}`;
@@ -57,7 +56,7 @@ export const useAxious = () => {
           try {
             const refreshToken = auth?.refreshToken;
             const response = await axios.post(
-              `${import.meta.env.DJANGO_SERVER_BASE_URL}/auth/refresh-token`,
+              `${baseUrl()}/auth/refresh-token`,
               { refreshToken }
             );
             console.log("response of 403 request: ", response);
