@@ -1,4 +1,5 @@
 # Blogging Platform Project
+
 ## Description
 
 This project is a blogging platform with various features implemented using React. Below are the requirements and features implemented in this project:
@@ -49,8 +50,6 @@ This project is a blogging platform with various features implemented using Reac
 - Error Handling
 - CSS for styling
 
-
-
 ## Live Site
 
 You can access the live site [here](https://blogify-teal-three.vercel.app/).
@@ -68,3 +67,16 @@ To access the admin panel, you'll need administrative privileges. Please use the
 
 - **Username:** admin
 - **Password:** 123
+
+### Up Comming
+
+- Edit bio in profile page
+- Update profile picture
+- Animation while dark mode to light mode
+- Edit blog in profile page
+- Delete blog in profile page
+
+### Future Plan
+
+- Blog recomendation system where ml model will do it
+- Convert blog into audio formate
