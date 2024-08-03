@@ -1,19 +1,20 @@
 /* eslint-disable react/prop-types */
-import favImg from "../assets/icons/heart.svg";
+import { useState } from "react";
 import heart from "../assets/icons/heart-filled.svg";
+import favImg from "../assets/icons/heart.svg";
+import useAuth from "../hooks/useAuth";
 import { useAxious } from "../hooks/useAxious";
 import { baseUrl } from "../utility";
-import useAuth from "../hooks/useAuth";
-import { useState } from "react";
 export default function Love({ singleBlog, setSingleBlog }) {
   const [isLoved, setIsLoved] = useState(false);
   console.log(singleBlog);
   const { api } = useAxious();
   const { auth } = useAuth();
   const hadelLike = async () => {
-    console.log("llike");
     const url = `${baseUrl()}/blogs/love/`;
     try {
+      // console.log("auth", auth);
+
       const response = await api.post(url, {
         lover: auth?.user?.id,
         blog: singleBlog?.id,

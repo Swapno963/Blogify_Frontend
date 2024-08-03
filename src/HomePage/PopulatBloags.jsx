@@ -23,23 +23,23 @@ export default function PopulatBloags() {
   // console.log("popular blog :", popularBlog);
   return (
     <div className="sidebar-card">
-      <h3 className="text-slate-300 text-xl lg:text-2xl font-semibold">
+      <h2 className="text-slate-700 opacity-70 text-xl lg:text-2xl font-semibold">
         Most Popular 👍️
-      </h3>
+      </h2>
 
       <ul className="space-y-5 my-5">
         {popularBlog?.map((blog) => (
           <li key={blog.id}>
             <Link
               to={`detail/${blog?.id}`}
-              className="text-slate-400 font-medium hover:text-slate-300 transition-all cursor-pointer"
+              className="text-[#333333] font-medium hover:text-slate-300 transition-all cursor-pointer"
             >
               {blog?.title}
             </Link>
             <p className="text-slate-600 text-sm">
               by
               <Link
-                className="hover:text-gray-300 text-blue-300 font-semibold"
+                className="hover:text-gray-300 text-gray-600 font-semibold"
                 to={`/profile/${stringToObj(blog?.user).id}`}
               >
                 {" "}

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import threeDots from "../assets/icons/3dots.svg";
+import imag_not_found from "../assets/image_not_found.png";
 import {
   getDateDifferenceFromNow,
   isCommentAuthor,
@@ -33,19 +34,23 @@ export default function NormalBlogCard({ bl, setBlogs, blogs }) {
   // console.log(authorObject);
 
   return (
-    <>
+    <div className="bg-[#D7DAF2] opacity-85 rounded-md">
       <Link
         to={`/detail/${id}`}
         className="blog-card my-6 py-3 hover:border-cyan-300 shadow-sm"
       >
-        <img className="blog-thumb" src={thumbnail} alt="" />
+        <img
+          className="blog-thumb"
+          src={thumbnail ? thumbnail : imag_not_found}
+          alt=""
+        />
         <div className="mt-2 relative">
           <p>
-            <h3 className="text-slate-300 text-xl lg:text-2xl">
+            <h3 className="text-[#333333] text-xl lg:text-2xl">
               <span>{title}</span>
             </h3>
           </p>
-          <p className="mb-6 text-base text-slate-500 mt-1">
+          <p className="mb-6 text-base text-[#333333] mt-1">
             {content.split(" ").slice(0, 20).join(" ")}
           </p>
 
@@ -67,12 +72,12 @@ export default function NormalBlogCard({ bl, setBlogs, blogs }) {
               </div>
 
               <div>
-                <h5 className="text-slate-300 text-xl font-bold ">
+                <h5 className="text-[#333333] text-xl font-bold ">
                   <Link to={`/profile/${authorObject?.id}`}>
                     {authorObject?.firstName} {authorObject?.lastName}
                   </Link>
                 </h5>
-                <div className="flex items-center  text-slate-600 ">
+                <div className="flex items-center  text-slate-400 ">
                   <span>{getDateDifferenceFromNow(createdAt)}</span>
                 </div>
               </div>
@@ -101,6 +106,6 @@ export default function NormalBlogCard({ bl, setBlogs, blogs }) {
           </div>
         </div>
       </Link>
-    </>
+    </div>
   );
 }

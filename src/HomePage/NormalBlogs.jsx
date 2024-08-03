@@ -90,6 +90,8 @@ export default function NormalBlogs() {
     const onIntersection = (items) => {
       const loaderItem = items[0];
 
+      console.log("loaderItem.isIntersecting && hasMore");
+      console.log(loaderItem.isIntersecting, " ", hasMore);
       if (loaderItem.isIntersecting && hasMore) {
         loadBlog();
       }
@@ -97,7 +99,7 @@ export default function NormalBlogs() {
     const observer = new IntersectionObserver(onIntersection);
 
     if (observer && loaderRef.current) {
-      console.log("load hosca karon :", observer, " && ", loaderRef.current);
+      // console.log("load hosca karon :", observer, " && ", loaderRef.current);
       observer.observe(loaderRef.current);
     }
 
@@ -121,8 +123,8 @@ export default function NormalBlogs() {
                   setBlogs={setBlogs}
                 />
               ))}
-            {hasMore && <div ref={loaderRef}>Loading more blogs...</div>}
             <ToastContainer />
+            {hasMore && <div ref={loaderRef}>Loading more blogs...</div>}
           </div>
 
           <div className="md:col-span-2 col-span-1  h-full w-full space-y-5 md:pl-12">

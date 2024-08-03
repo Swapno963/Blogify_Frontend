@@ -13,7 +13,9 @@ export default function FavouritBlogs() {
   useEffect(() => {
     const loadFavouritBlog = async () => {
       try {
-        if (auth.length == 0) return null;
+        console.log(auth);
+
+        if (Object.keys(auth).length == 0) return "";
         const response = await api.get(`${baseUrl()}/blogs/love`);
         // console.log(response);
         setFabBlogs(response?.data);
@@ -26,7 +28,7 @@ export default function FavouritBlogs() {
   // console.log(favBlogs);
   return (
     <div className="sidebar-card">
-      <h3 className="text-slate-300 text-xl lg:text-2xl font-semibold">
+      <h3 className="text-slate-700 opacity-70 text-xl lg:text-2xl font-semibold">
         Your Favourites ❤️
       </h3>
 

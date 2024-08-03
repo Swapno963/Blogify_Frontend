@@ -34,9 +34,6 @@ export default function Review() {
     <section className=" py-12 md:my-12">
       <div className="row py-12 ">
         <div className="text-center mx-auto max-w-2xl  pb-12 opacity-70">
-          {/* <h1 className="text-4xl pb-4  tracking-tight  sm:text-6xl font-bold ">
-            Testimonial
-          </h1> */}
           <h1 className="font-bold text-6xl  pb-4">Testimonial</h1>
 
           <p className="pt-6  font-semibold">

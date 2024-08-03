@@ -19,7 +19,7 @@ export default function Follow() {
   ];
   return (
     <div className="sidebar-card">
-      <h2 className="text-slate-300 text-xl lg:text-2xl font-semibold ">
+      <h2 className="text-slate-700 opacity-70 text-xl lg:text-2xl font-semibold ">
         Who to follow
       </h2>
       <div className="flex flex-wrap gap-3 my-5">
