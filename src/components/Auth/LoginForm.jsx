@@ -1,16 +1,12 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-extra-boolean-cast */
-/* eslint-disable react/no-unescaped-entities */
-
+"use client";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { actions } from "../../actions";
 import useAuth from "../../hooks/useAuth";
 import { useProfile } from "../../hooks/useProfile";
-import Field from "../common/Field";
 import { baseUrl } from "../../utility";
-
+import Field from "../common/Field";
 export default function LoginForm() {
   const { state, dispatch } = useProfile();
 
@@ -27,11 +23,47 @@ export default function LoginForm() {
     // console.log(formData);
     // make an api cal
     // will will return tokens and logedin
+
     try {
       const responce = await axios.post(
         // `${import.meta.env.DJANGO_SERVER_BASE_URL}/auth/login/`,
         `${baseUrl()}/auth/login/`,
         formData
+      );
+      console.log(responce);
+      if (responce.status === 200) {
+        const { token, user } = responce.data;
+        // console.log('user for login ',user);
+        // dispatch({type:actions.USER_DATA_EDITED,responce})
+        dispatch({
+          type: actions.profile.USER_DATA_EDITED,
+          data: user,
+        });
+        if (token) {
+          // console.log("all token ;",token);
+          const authToken = token.accessToken;
+          const refreshToken = token.refreshToken;
+          console.log("authToken :", authToken);
+          console.log("refreshToken :", refreshToken);
+          updateData({ user, authToken, refreshToken });
+          navigate("/");
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      setError("root.random", {
+        type: "random",
+        message: error?.response?.data?.error,
+      });
+    }
+  };
+
+  const demoLogin = async () => {
+    try {
+      const responce = await axios.post(
+        // `${import.meta.env.DJANGO_SERVER_BASE_URL}/auth/login/`,
+        `${baseUrl()}/auth/login/`,
+        { email: "swapnoms7d3@gmail.com", password: "12345678n" }
       );
       console.log(responce);
       if (responce.status === 200) {
@@ -72,7 +104,7 @@ export default function LoginForm() {
             className={`w-full p-3 bg-[#030317] border
                   // eslint-disable-next-line no-extra-boolean-cast
                   ${
-                    !!errors.email ? "border-red-500" : ""
+                    errors.email ? "border-red-500" : ""
                   } border-white/20 rounded-md focus:outline-none focus:border-indigo-500`}
           />
         </Field>
@@ -93,7 +125,7 @@ export default function LoginForm() {
             className={`w-full p-3 bg-[#030317] border
                   // eslint-disable-next-line no-extra-boolean-cast
                   ${
-                    !!errors.password ? "border-red-500" : ""
+                    errors.password ? "border-red-500" : ""
                   } border-white/20 rounded-md focus:outline-none focus:border-indigo-500`}
           />
         </Field>
@@ -105,6 +137,13 @@ export default function LoginForm() {
           className="w-full bg-indigo-600 text-white p-3 rounded-md hover:bg-indigo-700 transition-all duration-200"
         >
           Login
+        </button>
+        <button
+          onClick={demoLogin}
+          type="submit2"
+          className="mt-3 w-full bg-indigo-600 text-white p-3 rounded-md hover:bg-indigo-700 transition-all duration-200"
+        >
+          Demo Login
         </button>
       </div>
       <p className="text-center">

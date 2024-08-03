@@ -1,8 +1,19 @@
-# Blogging Platform Project
+# Blogify : Blogging Platform Project
 
 ## Description
 
-This project is a blogging platform with various features implemented using React. Below are the requirements and features implemented in this project:
+This project is a blogging platform with various features implemented using React. Below are the requirements and features implemented in this project.
+
+## Live Site
+
+You can access the live site [here](https://blogify-teal-three.vercel.app/).
+
+## User Login
+
+To log in as a user, please use the following credentials:
+
+- **Email:** swapnoms7d3@gmail.com
+- **Password:** 12345678n
 
 - **Get Blogs**: Users can request blogs on the home page, which fetches 10 blogs from an API. Infinite scroll is implemented to load more blogs as the user scrolls, with sync to ensure seamless loading.
 
@@ -42,24 +53,13 @@ This project is a blogging platform with various features implemented using Reac
 
 ## Technologies Used
 
-- React
-- API integration
+- **React**: JavaScript library for building user interfaces.
+- **Tailwind CSS**: Utility-first CSS framework for styling.
+- **Django**: Backend framework for makeing api.
 - Infinite Scroll
 - Private Routes
 - Authentication
 - Error Handling
-- CSS for styling
-
-## Live Site
-
-You can access the live site [here](https://blogify-teal-three.vercel.app/).
-
-## User Login
-
-To log in as a user, please use the following credentials:
-
-- **Email:** swapnoms7d3@gmail.com
-- **Password:** 12345678n
 
 ## Accessing the Admin Panel
 

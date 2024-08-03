@@ -25,7 +25,7 @@ export default function App() {
   return (
     <div
       className={
-        darkMode ? "bg-gray-300 text-gray-800 " : "text-gray-800 bg-gray-50"
+        darkMode ? "bg-[#acbcf6] text-gray-900 " : "text-gray-800 bg-gray-50"
       }
     >
       <div className="">
