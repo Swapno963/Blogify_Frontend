@@ -13,12 +13,7 @@ export default function Navbar({
   showSearch,
   setShowSearch,
 }) {
-  const { auth } = useAuth(); // in auth.use we can get all the user info
-  // console.log("from naavbar, looking for user data", auth);
-  // if(auth.user){
-  //   const { firstName, avatar, id } = auth?.user;
-  // }
-  // console.log("auth is:", auth);
+  const { auth } = useAuth(); // in auth.use we can get all the
 
   // eslint-disable-next-line no-unused-vars
   const { state, dispatch } = useProfile();
@@ -36,18 +31,18 @@ export default function Navbar({
   };
   // console.log(state);
   return (
-    <header className="bg-gray-800  sm:h-[100px] mb-[-1px]  h-auto sm:flex-col flex-row items-center">
-      <nav className="container   ">
+    <header className="  sm:h-[100px] mb-[-1px]  h-auto sm:flex-col flex-row items-center">
+      <nav className="w-full md:px-[5%] bg-gray-800  fixed z-10">
         <div>
           <Link to="/">
-            <img className="w-24 h-[65px]" src={logo} alt="lws" />
+            <img className="w-24 h-[65px]" src={logo} alt="Blogify" />
           </Link>
         </div>
 
         <Link
           onClick={() => setShowSearch(!showSearch)}
           to="#"
-          className="flex items-center gap-2 cursor-pointer mt-[-20px] sm:mt-[0px]"
+          className="flex items-center gap-2 cursor-pointer mt-[-20px] sm:mt-[0px] text-xl"
         >
           <img src={searchLogo} alt="Search" />
           <span>Search</span>
@@ -100,7 +95,7 @@ export default function Navbar({
               <li>
                 <Link
                   to="login"
-                  className="text-white/50 hover:text-white transition-all duration-200"
+                  className="text-white/70 hover:text-white transition-all duration-200 font-bold"
                 >
                   Login
                 </Link>
