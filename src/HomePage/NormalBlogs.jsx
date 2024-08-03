@@ -111,7 +111,7 @@ export default function NormalBlogs() {
 
   return (
     <section className="overflow-auto">
-      <div className="mx-auto sm:w-3/5">
+      <div className="mx-auto sm:w-4/5">
         <div className="grid grid-cols-1 md:grid-cols-7 gap-4 ">
           <div className="space-y-3 md:col-span-5  min-h-screen overflow-scroll ">
             {state?.posts &&
