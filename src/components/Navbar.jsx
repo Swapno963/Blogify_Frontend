@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/blogify.png";
 import searchLogo from "../assets/icons/search.svg";
@@ -21,6 +22,18 @@ export default function Navbar({
 
   // eslint-disable-next-line no-unused-vars
   const { state, dispatch } = useProfile();
+  const plusIconRef = useRef(null);
+  const handleMouseEnter = () => {
+    if (plusIconRef.current) {
+      plusIconRef.current.style.transform = "rotate(360deg)";
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (plusIconRef.current) {
+      plusIconRef.current.style.transform = "rotate(0deg)";
+    }
+  };
   // console.log(state);
   return (
     <header className="bg-gray-800  sm:h-[100px] mb-[-1px]  h-auto sm:flex-col flex-row items-center">
@@ -65,10 +78,20 @@ export default function Navbar({
               </button>
             </li>
             <li>
+              {/* Write blog */}
               <Link
                 to="writeBlog"
-                className="bg-indigo-600 text-white px-6 py-2  rounded-md hover:bg-indigo-700 transition-all duration-200"
+                className="bg-indigo-500 text-white px-6 py-2 rounded-md hover:bg-indigo-400 transition-all duration-200"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
               >
+                <span
+                  ref={plusIconRef}
+                  className="font-bold transition-transform duration-1000 inline-block"
+                  style={{ display: "inline-block" }}
+                >
+                  +
+                </span>{" "}
                 Write
               </Link>
             </li>
