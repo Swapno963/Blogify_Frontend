@@ -43,11 +43,25 @@ export default function Navbar({
         <div>
           <ul className="flex items-center space-x-5">
             <li>
+              {/* Dark mode to light mode */}
               <button
-                className="bg-indigo-600 text-white px-6 py-2  rounded-md hover:bg-indigo-700 transition-all duration-200"
+                className="relative flex items-center justify-center w-16 h-10 bg-indigo-500 rounded-full shadow-md transition-transform duration-300 transform hover:scale-105"
                 onClick={toggleDarkMode}
               >
-                {darkMode ? "Light Mode" : "Dark Mode"}{" "}
+                <div
+                  className={`absolute inset-0 flex items-center justify-center transition-all duration-900 ${
+                    darkMode ? "opacity-0" : "opacity-100"
+                  }`}
+                >
+                  <span className="text-yellow-400 text-3xl">☀️</span>
+                </div>
+                <div
+                  className={`absolute inset-0 flex items-center justify-center transition-all duration-900 ${
+                    darkMode ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  <span className="text-blue-400 text-3xl">🌙</span>
+                </div>
               </button>
             </li>
             <li>
