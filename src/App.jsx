@@ -48,13 +48,14 @@ export default function App() {
           <Route element={<PrivetRoutes />}>
             <Route element={<WriteBlog />} path="writeBlog" />
             <Route element={<Profile />} path="profile/:id" />
-            <Route element={<SingleBlog />} path="detail/:id" />
             <Route element={<EditSingleBlog />} path="editBlog/:id" />
           </Route>
 
           {/* without protected routes */}
           <Route element={<FrontPage />} path="/" exact />
           <Route element={<NormalBlogs />} path="/blogs" />
+          <Route element={<SingleBlog />} path="detail/:id" />
+
           <Route element={<Login />} path="login" />
           <Route element={<Register />} path="register" />
           <Route element={<NotFound />} path="*" />
