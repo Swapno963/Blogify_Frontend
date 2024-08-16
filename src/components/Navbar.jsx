@@ -31,18 +31,18 @@ export default function Navbar({
   };
   // console.log(state);
   return (
-    <header className="  sm:h-[100px] mb-[-1px]  h-auto sm:flex-col flex-row items-center">
-      <nav className="w-full md:px-[5%] bg-gray-800  fixed z-10">
-        <div>
-          <Link to="/">
-            <img className="w-24 h-[65px]" src={logo} alt="Blogify" />
-          </Link>
-        </div>
+    <header className="  sm:flex-col flex-row items-center">
+      <nav className="sm:h-[70px]  w-full md:px-[5%] bg-gray-800  fixed z-10">
+        {/* <div> */}
+        <Link to="/">
+          <img className="w-24  object-contain" src={logo} alt="Blogify" />
+        </Link>
+        {/* </div> */}
 
         <Link
           onClick={() => setShowSearch(!showSearch)}
           to="#"
-          className="flex items-center gap-2 cursor-pointer mt-[-20px] sm:mt-[0px] text-xl"
+          className="flex items-center gap-2 cursor-pointer  sm:mt-[0px] text-xl"
         >
           <img src={searchLogo} alt="Search" />
           <span>Search</span>
