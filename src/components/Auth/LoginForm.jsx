@@ -101,7 +101,7 @@ export default function LoginForm() {
             type="email"
             id="email"
             name="email"
-            className={`w-full p-3 bg-[#030317] border
+            className={`w-full p-3 bg-[#6d6d7b] border 
                   // eslint-disable-next-line no-extra-boolean-cast
                   ${
                     errors.email ? "border-red-500" : ""
@@ -122,7 +122,7 @@ export default function LoginForm() {
             type="password"
             id="password"
             name="password"
-            className={`w-full p-3 bg-[#030317] border
+            className={`w-full p-3  bg-[#6d6d7b] border
                   // eslint-disable-next-line no-extra-boolean-cast
                   ${
                     errors.password ? "border-red-500" : ""
