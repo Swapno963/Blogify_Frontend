@@ -58,7 +58,7 @@ export default function RegisterForm() {
             type="text"
             id="first_name"
             name="first_name"
-            className={`w-full p-3 bg-[#030317] border
+            className={`w-full p-3 bg-[#6d6d7b]  border
                   // eslint-disable-next-line no-extra-boolean-cast
                   ${
                     !errors.email ? "border-red-500" : ""
@@ -75,7 +75,7 @@ export default function RegisterForm() {
             type="text"
             id="last_name"
             name="last_name"
-            className={`w-full p-3 bg-[#030317] border
+            className={`w-full p-3 bg-[#6d6d7b]  border
                   // eslint-disable-next-line no-extra-boolean-cast
                   ${
                     !errors.email ? "border-red-500" : ""
@@ -90,7 +90,7 @@ export default function RegisterForm() {
             type="email"
             id="email"
             name="email"
-            className={`w-full p-3 bg-[#030317] border
+            className={`w-full p-3 bg-[#6d6d7b]  border
                   // eslint-disable-next-line no-extra-boolean-cast
                   ${
                     !errors.email ? "border-red-500" : ""
@@ -111,7 +111,7 @@ export default function RegisterForm() {
             type="password"
             id="confirm_password"
             name="confirm_password"
-            className={`w-full p-3 bg-[#030317] border
+            className={`w-full p-3 bg-[#6d6d7b]  border
                   // eslint-disable-next-line no-extra-boolean-cast
                   ${
                     !errors.confirm_password ? "border-red-500" : ""
@@ -132,7 +132,7 @@ export default function RegisterForm() {
             type="password"
             id="password"
             name="password"
-            className={`w-full p-3 bg-[#030317] border
+            className={`w-full p-3 bg-[#6d6d7b]  border
                   // eslint-disable-next-line no-extra-boolean-cast
                   ${
                     !errors.password ? "border-red-500" : ""

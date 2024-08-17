@@ -27,7 +27,7 @@ export default function SingleBlog() {
   // console.log(htmlContent);
   return (
     <>
-      <main className="pb-[200px]">
+      <main className="pb-[200px] mt-12">
         <section>
           <div className="container text-center py-8">
             <h1 className="font-bold text-3xl md:text-5xl">
@@ -65,7 +65,7 @@ export default function SingleBlog() {
               ))}
             </ul>
 
-            <div className="mx-auto w-full md:w-10/12 text-slate-300 text-base md:text-lg leading-8 py-2 !text-left">
+            <div className="mx-auto w-full md:w-10/12 text-slate-800 text-base md:text-lg leading-8 py-2 !text-left">
               {/* {singleBlog?.content} */}
               <p dangerouslySetInnerHTML={{ __html: htmlContent }}></p>
             </div>

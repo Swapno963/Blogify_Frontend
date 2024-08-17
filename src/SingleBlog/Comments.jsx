@@ -3,15 +3,13 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
 
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Field from "../components/common/Field";
 import { useAxious } from "../hooks/useAxious";
 
 import useAuth from "../hooks/useAuth";
-import CommentCard from "./CommentCard";
-import axios from "axios";
 import { baseUrl } from "../utility";
+import CommentCard from "./CommentCard";
 export default function Comments({ comment_writer, blogId, setSingleBlog }) {
   const { api } = useAxious();
   const { auth } = useAuth(); // in auth.use we can get all the user info
@@ -24,7 +22,7 @@ export default function Comments({ comment_writer, blogId, setSingleBlog }) {
     handleSubmit,
     formState: { errors },
     setError,
-    reset 
+    reset,
   } = useForm();
 
   const submitForm = (formData) => {
@@ -52,7 +50,7 @@ export default function Comments({ comment_writer, blogId, setSingleBlog }) {
         // `http://127.0.0.1:8000/blogs/comment/5`,
         data
       );
-      reset()
+      reset();
       const commentData = responce?.data?.data;
       // const updateComments = [...comment_writer,...commentData]
       // console.log(commentData);
@@ -94,7 +92,7 @@ export default function Comments({ comment_writer, blogId, setSingleBlog }) {
                   {...register("content", {
                     required: "content  is required!",
                   })}
-                  className="w-full bg-[#030317] border border-slate-500 text-slate-300 p-4 rounded-md focus:outline-none"
+                  className="w-full bg-[#525277] border border-slate-500 text-slate-300 p-4 rounded-md focus:outline-none"
                   placeholder="Write a comment"
                 ></textarea>
               </Field>
