@@ -10,8 +10,11 @@ export default function TopBanner() {
     backgroundSize: "cover",
   };
   return (
-    <div className=" " style={divStyle}>
-      <div className="relative  px-6 pt-14 lg:px-8">
+    <div className=" ">
+      <div
+        style={divStyle}
+        className="relative dark:text-gray-200 text-white px-6 pt-14 lg:px-8 "
+      >
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="text-center opacity-100">
             <h1 className="text-6xl  font-bold tracking-tight  sm:text-6xl">
@@ -25,14 +28,11 @@ export default function TopBanner() {
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
                 to="blogs"
-                className="rounded-md bg-gradient-to-r from-blue-500 to-green-500 px-4 py-3  font-semibold text-xl text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="rounded-md bg-gradient-to-r from-blue-500 to-green-500 px-4 py-3  font-semibold text-xl shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Get started
               </Link>
-              <a
-                href="#"
-                className="text-sm font-semibold leading-6 text-white"
-              >
+              <a href="#" className="text-sm font-semibold leading-6 ">
                 Learn more <span aria-hidden="true">→</span>
               </a>
             </div>
