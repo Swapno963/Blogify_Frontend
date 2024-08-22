@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Route, Routes } from "react-router-dom";
 import FrontPage from "./FrontPage/FrontPage";
@@ -19,6 +19,10 @@ import PrivetRoutes from "./routes/PrivetRoutes";
 export default function App() {
   const [showSearch, setShowSearch] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
+  useEffect(() => {
+    document.body.classList.toggle("dark", darkMode);
+  }, [darkMode]);
+
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };

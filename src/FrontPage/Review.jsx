@@ -48,18 +48,21 @@ export default function Review() {
             {reviews.map((rev) => (
               <div
                 key={rev.id}
-                className="col-span-3 sm:col-span-1 pt-12 pb-10 shadow-2xl p-6 rounded-md  opacity-80"
+                className="col-span-3 sm:col-span-1 p-6 rounded-lg shadow-lg   transition-all duration-300 hover:shadow-2xl opacity-90 dark:bg-gray-700
+                "
               >
-                <p className="">{rev.message}</p>
-                <div className="mt-8 flex items-center gap-x-4">
+                <p className="text-lg leading-relaxed">{rev.message}</p>
+                <div className="mt-6 flex items-center gap-x-4">
                   <img
-                    className="h-10 w-10 rounded-full "
+                    className="h-12 w-12 rounded-full object-cover border-2 border-gray-300 dark:border-gray-600"
                     src={rev.avatar}
                     alt=""
                   />
                   <div>
-                    <h4 className="font-semibold">{rev.userName}</h4>
-                    <small>{rev.date}</small>
+                    <h4 className="font-semibold ">{rev.userName}</h4>
+                    <small className="text-gray-500 dark:text-gray-400">
+                      {rev.date}
+                    </small>
                   </div>
                 </div>
               </div>
