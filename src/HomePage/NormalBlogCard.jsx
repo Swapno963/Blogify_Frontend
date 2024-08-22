@@ -34,7 +34,7 @@ export default function NormalBlogCard({ bl, setBlogs, blogs }) {
   // console.log(authorObject);
 
   return (
-    <div className="bg-[#D7DAF2] opacity-85 rounded-md">
+    <div className=" opacity-85 rounded-md">
       <Link
         to={`/detail/${id}`}
         className="blog-card my-6 py-3 hover:border-cyan-300 shadow-sm"
@@ -46,11 +46,11 @@ export default function NormalBlogCard({ bl, setBlogs, blogs }) {
         />
         <div className="mt-2 relative">
           <p>
-            <h3 className="text-[#333333] text-xl lg:text-2xl">
+            <h3 className=" text-xl lg:text-2xl">
               <span>{title}</span>
             </h3>
           </p>
-          <p className="mb-6 text-base text-[#333333] mt-1">
+          <p className="mb-6 text-base  mt-1">
             {content.split(" ").slice(0, 20).join(" ")}
           </p>
 
@@ -72,7 +72,7 @@ export default function NormalBlogCard({ bl, setBlogs, blogs }) {
               </div>
 
               <div>
-                <h5 className="text-[#333333] text-xl font-bold ">
+                <h5 className=" text-xl font-bold ">
                   <Link to={`/profile/${authorObject?.id}`}>
                     {authorObject?.firstName} {authorObject?.lastName}
                   </Link>

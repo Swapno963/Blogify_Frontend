@@ -1,7 +1,7 @@
 export default function ReadingList() {
   return (
     <div className="mt-12 sidebar-card">
-      <h2 className="text-slate-700 opacity-70 text-xl lg:text-2xl font-semibold pb-4">
+      <h2 className="opacity-80 text-xl lg:text-2xl font-semibold pb-4">
         Reading List
       </h2>
       <p>

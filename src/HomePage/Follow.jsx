@@ -19,7 +19,7 @@ export default function Follow() {
   ];
   return (
     <div className="sidebar-card">
-      <h2 className="text-slate-700 opacity-70 text-xl lg:text-2xl font-semibold ">
+      <h2 className=" opacity-90 text-xl lg:text-2xl font-semibold ">
         Who to follow
       </h2>
       <div className="flex flex-wrap gap-3 my-5">
@@ -31,7 +31,7 @@ export default function Follow() {
               <p>{f?.des} </p>
             </div>
             <div>
-              <button className="rounded-xl px-3 py-2 border border-indigo-400 text-indigo-400 bg-white transition-colors duration-300 ease-in-out hover:bg-indigo-500 hover:text-white">
+              <button className="rounded-xl px-3 py-2 border border-indigo-400  transition-colors duration-300 ease-in-out hover:bg-indigo-500 hover:text-white">
                 Follow
               </button>
             </div>

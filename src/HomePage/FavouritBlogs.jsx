@@ -28,7 +28,7 @@ export default function FavouritBlogs() {
   // console.log(favBlogs);
   return (
     <div className="sidebar-card">
-      <h3 className="text-slate-700 opacity-70 text-xl lg:text-2xl font-semibold">
+      <h3 className=" opacity-70 text-xl lg:text-2xl font-semibold">
         Your Favourites ❤️
       </h3>
 
@@ -39,13 +39,13 @@ export default function FavouritBlogs() {
             <li key={blog.id}>
               <Link
                 to={`detail/${blog?.id}`}
-                className="text-slate-400 font-medium hover:text-slate-300 transition-all cursor-pointer"
+                className=" font-medium hover:text-slate-300 transition-all cursor-pointer"
               >
                 {stringToObj(blog?.user)["title"]}{" "}
               </Link>
-              <p className="text-slate-600 text-sm">
+              <p className="text-sm">
                 by{" "}
-                <span className="text-slate-200 font-medium hover:text-slate-400 transition-all cursor-pointer">
+                <span className="font-medium hover:text-slate-400 transition-all cursor-pointer">
                   {" "}
                   {stringToObj(blog?.user)["firstName"]}{" "}
                 </span>

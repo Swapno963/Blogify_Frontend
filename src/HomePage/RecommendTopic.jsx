@@ -10,14 +10,14 @@ export default function RecommendTopic() {
   ];
   return (
     <div className="sidebar-card mt-8">
-      <h2 className="text-slate-700 opacity-70 text-xl lg:text-2xl font-semibold pt-3 mb-6">
+      <h2 className=" opacity-70 text-xl lg:text-2xl font-semibold pt-3 mb-6">
         Recommendaed Topics
       </h2>
       <div className="flex flex-wrap gap-3">
         {reco?.map((r) => (
           <p
             key={r?.id}
-            className="py-2 px-3 text-[#333333] bg-[#D7DAF2] rounded-full"
+            className="py-2 px-3  bg-[#dedfe4] dark:bg-gray-700 rounded-full"
           >
             {r?.text}
           </p>
