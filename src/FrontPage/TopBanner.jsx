@@ -3,21 +3,21 @@ import bgImg from "../assets/reading_blog.jpg";
 export default function TopBanner() {
   const divStyle = {
     background: `linear-gradient(
-          rgba(78, 87, 212, 0.507),
+          rgb(207 208 218 / 51%),
           rgba(78, 87, 212, 0.438)
         ), url(${bgImg})`,
     backgroundPosition: "center",
     backgroundSize: "cover",
   };
   return (
-    <div className="bg-white " style={divStyle}>
+    <div className=" " style={divStyle}>
       <div className="relative  px-6 pt-14 lg:px-8">
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="text-center opacity-100">
-            <h1 className="text-6xl  font-bold tracking-tight text-white sm:text-6xl">
+            <h1 className="text-6xl  font-bold tracking-tight  sm:text-6xl">
               Read Blogs To enhance your knowledge
             </h1>
-            <p className="mt-12 text-xl leading-8 text-white">
+            <p className="mt-12 text-xl leading-8">
               Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
               lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
               fugiat aliqua.
