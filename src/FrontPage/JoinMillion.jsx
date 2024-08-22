@@ -19,7 +19,7 @@ export default function JoinMillion() {
   };
   return (
     <section className=" min-h-screen relative  opacity-100">
-      <div className="absolute inset-0 flex flex-col justify-center items-center z-10 space-y-6">
+      <div className="absolute inset-0 flex flex-col justify-center items-center z-4 space-y-6">
         <h2 className="font-bold text-6xl pb-6 text-center">
           Join millions of others
         </h2>
