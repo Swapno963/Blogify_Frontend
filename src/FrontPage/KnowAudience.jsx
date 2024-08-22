@@ -1,5 +1,5 @@
 // import audienceImg from "../assets/audience.jpg";
-import audienceImg from "../assets/Blog-Know-your-audience.png";
+import audienceImg from "../assets/Blog-Know-your-audience_update.png";
 export default function KnowAudience() {
   return (
     // bg-indigo-400
@@ -16,7 +16,7 @@ export default function KnowAudience() {
           </p>
         </div>
         <div className="col-span-2 pt-9 sm:col-span-1">
-          <img className="w-full h-90 " src={audienceImg} alt="" />
+          <img className="w-full h-90 rounded-md" src={audienceImg} alt="" />
         </div>
       </div>
     </section>
